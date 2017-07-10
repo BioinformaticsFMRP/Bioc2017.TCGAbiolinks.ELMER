@@ -1,0 +1,71 @@
+---
+title: "Integrative analysis workshop with TCGAbiolinks and ELMER"
+author: "Tiago Chedraoui Silva, Simon Coetzee, Ben Berman, Houtan Noushmehr"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: true
+    number_sections: no
+    theme: flatly
+    highlight: tango
+    mathjax: null
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    css: style.css
+bibliography: bibliography.bib    
+vignette: >
+  %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+Another Bioconductor package will also be introduced called 
+[ELMER](http://bioconductor.org/packages/ELMER/) which allows 
+one to identify DNA methylation changes in distal regulatory regions and correlate 
+these signatures with expression of nearby genes to identify transcriptional 
+targets associated with cancer. For these distal probes correlated with a gene, 
+a transcription factor motif analysis is performed followed by expression 
+analysis of transcription factors to infer upstream regulators.
+
+We expect that participants of this workshop will understand the integrative 
+analysis performed by using 
+[TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) + 
+[ELMER](http://bioconductor.org/packages/ELMER/), as well as be able to execute 
+it from the data acquisition process to the final interpretation of the results. 
+The workshop assumes users with an intermediate level of familiarity with R, 
+and basic understanding of tumor biology. 
+
+The figure below hihglights the workflow part which will be covered in this section.
+![Part of the workflow covered in this section](figures/workflow_ELMER.png)
+
+
+## Installation instructions
+
+To install this package and build the vignette run the following commands:
+
+```{r src, eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+useDevel()
+biocLite("devtools")
+biocLite("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER",
+         dependencies = TRUE, build_vignettes = TRUE)
+```
+
+## Accessing the vignette 
+The vignette can be laucnhed with the following command:
+
+```{r vignette, eval=FALSE}
+library("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER")
+bioc2017()
+```
+
+# Session Info
+
+```{r sessioninfo, eval=TRUE}
+sessionInfo()
+```
+
+# Bibliography

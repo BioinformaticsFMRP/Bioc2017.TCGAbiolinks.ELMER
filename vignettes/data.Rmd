@@ -31,6 +31,10 @@ gene expression (transcription) data from the newly created
 [NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/) 
 and prepare them into a Summarized Experiment object. 
 
+The figure below hihglights the workflow part which will be covered in this section.
+![Part of the workflow covered in this section](figures/workflow_TGCAbiolinks.png)
+
+
 ## Loading required libraries
 
 ```{r vignette, eval=TRUE, message=FALSE,warning=F}
