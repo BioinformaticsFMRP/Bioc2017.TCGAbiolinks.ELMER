@@ -1,0 +1,93 @@
+---
+title: "Integrative analysis workshop with TCGAbiolinks and ELMER"
+author: "Tiago Chedraoui Silva, Simon Coetzee, Ben Berman, Houtan Noushmehr"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: true
+    number_sections: no
+    theme: flatly
+    highlight: tango
+    mathjax: null
+    toc: true
+    toc_float: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+The Cancer Genome Atlas (TCGA), The Encyclopedia of DNA Elements (ENCODE), and 
+The NIH Roadmap Epigenomics Mapping Consortium (Roadmap) and other organized 
+international consortia have led the explosion of sequencing based biological 
+data and thereby have provided unprecedented access to the largest publicly 
+available genomic, transcriptomic and epigenomic data to date. 
+
+These projects have provided amazing opportunities for researchers to interrogate 
+the epigenome of cultured cancer cell lines, normal and tumor fresh tissues with 
+high genomic resolution. However, the use of such data in analyzes, comprises the 
+arduous task of searching, downloading and processing them in a reproducible manner. 
+Furthermore, most bioinformatics tools are designed for specific data types 
+(e.g. expression, epigenetics, genomics) which provides only a partial view of 
+the biological process that takes place. 
+
+Performing an integrated analysis of molecular datasets along with clinical 
+information, has been shown to improve the prognostic and predictive accuracy 
+for cancer phenotypes if compared to clinical features alone. This workshop will 
+focus on helping researchers to perform an integrative analysis of both molecular 
+and clinical data available through the TCGA by harnessing open source packages 
+within the bioconductor platform.
+
+Participants will learn to search and download DNA methylation (epigenetic) and 
+gene expression (transcription) data from the newly created 
+[NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/) 
+and prepare them into a Summarized Experiment object. 
+We will introduce the workflow using our recently developed TCGAbiolinks and if 
+time permitted, we will highlight the Graphics User Interface version 
+([TCGAbiolinksGUI](http://bioconductor.org/packages/TCGAbiolinksGUI/)). 
+
+Another bioconductor package will also be introduced called 
+[ELMER](http://bioconductor.org/packages/ELMER/) which allows 
+one to identify DNA methylation changes in distal regulatory regions and correlate 
+these signatures with expression of nearby genes to identify transcriptional 
+targets associated with cancer. For these distal probes correlated with a gene, 
+a transcription factor motif analysis is performed followed by expression 
+analysis of transcription factors to infer upstream regulators.
+
+We expect that participants of this workshop will understand the integrative 
+analysis performed by using 
+[TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) + 
+[ELMER](http://bioconductor.org/packages/ELMER/), as well as be able to execute 
+it from the data acquisition process to the final interpretation of the results. 
+The workshop assumes users with an intermediate level of familiarity with R, 
+and basic understanding of tumor biology. 
+
+
+## Installation instructions
+
+To install this package and build the vignette run the following commands:
+
+```{r src, eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+useDevel()
+biocLite("devtools")
+biocLite("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER",
+         dependencies = TRUE, build_vignettes = TRUE)
+```
+
+## Accessing the vignette 
+The vignette can be laucnhed with the following command:
+
+```{r vignette, eval=FALSE}
+library("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER")
+bioc2017()
+```
+
+# Session Info
+
+```{r sessioninfo, eval=TRUE}
+sessionInfo()
+```

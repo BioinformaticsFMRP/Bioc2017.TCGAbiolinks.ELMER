@@ -1,0 +1,38 @@
+Package: Bioc2017.TCGAbiolinks.ELMER
+Title: What the Package Does (one line, title case)
+Version: 0.0.0.9000
+Authors@R: person("Tiago", "Chedraoui Silva", email = "tiagochst@gmail.com", role = c("aut", "cre"))
+Description: In this workshop, we will use the R/Bioconductor 
+    TCGAbiolinks package to search and download DNA methylation (epigenetic) 
+    and gene expression (transcription) data from the newly 
+    created NCI Genomic Data Commons (GDC) portal and prepare 
+    them into a Summarized Experiment object. We will introduce 
+    the workflow using our recently developed TCGAbiolinks and if time 
+    permitted, we will highlight the Graphics User Interface 
+    version (TCGAbiolinksGUI). 
+    This data will be used to performa an integrative analysis using
+    the R/Bioconductor ELMER package (version 2.0) which allows 
+    one to identify DNA methylation changes in distal regulatory 
+    regions and correlate these signatures with expression of nearby genes 
+    to identify transcriptional targets associated with cancer. 
+    For these distal probes correlated 
+    with a gene, a transcription factor motif analysis is performed 
+    followed by expression analysis of transcription factors 
+    to infer upstream regulators.
+    We expect that participants of this workshop will 
+    understand the integrative analysis performed by using TCGAbiolinks + ELMER, 
+    as well as be able to execute it from the data acquisition process to the 
+    final interpretation of the results. 
+    The workshop assumes users with an intermediate level of familiarity with R, 
+    and basic understanding of tumor biology. 
+Depends: R (>= 3.4.0)
+Suggests:
+  TCGAbiolinks (>= 2.5.5),
+  TCGAbiolinksGUI (>= 1.1.1),
+  ELMER (>= 2.0.1),
+    knitr,
+    rmarkdown
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
