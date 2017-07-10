@@ -1,0 +1,14 @@
+name: "Bioc2017"
+navbar:
+  title: "Bioc2017"
+  href: https://www.bioconductor.org/help/course-materials/2017/BioC2017/
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: Bioc2017.html
+    - text: "Get Data"
+      icon: fa-database
+      href: data.html
+    - text: "Analysis"
+      icon: fa-flask
+      href: analysis.html

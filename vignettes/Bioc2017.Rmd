@@ -12,6 +12,8 @@ output:
     toc: true
     toc_float: true
     toc_depth: 2
+    css: style.css
+bibliography: bibliography.bib    
 vignette: >
   %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
   %\VignetteEngine{knitr::rmarkdown}
@@ -20,9 +22,11 @@ vignette: >
 
 # Introduction
 
-The Cancer Genome Atlas (TCGA), The Encyclopedia of DNA Elements (ENCODE), and 
-The NIH Roadmap Epigenomics Mapping Consortium (Roadmap) and other organized 
-international consortia have led the explosion of sequencing based biological 
+The Cancer Genome Atlas (TCGA) [@weinstein2013cancer], 
+The Encyclopedia of DNA Elements (ENCODE)  [@encode2011user], and 
+The NIH Roadmap Epigenomics Mapping Consortium (Roadmap) [@Fingerman; @Bernstein]
+and other organized international consortia have led the explosion 
+of sequencing based biological 
 data and thereby have provided unprecedented access to the largest publicly 
 available genomic, transcriptomic and epigenomic data to date. 
 
@@ -45,8 +49,9 @@ Participants will learn to search and download DNA methylation (epigenetic) and
 gene expression (transcription) data from the newly created 
 [NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/) 
 and prepare them into a Summarized Experiment object. 
-We will introduce the workflow using our recently developed TCGAbiolinks and if 
-time permitted, we will highlight the Graphics User Interface version 
+We will introduce the workflow using our recently developed 
+[TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) [@TCGAbiolinks]
+and if time permitted, we will highlight the Graphics User Interface version 
 ([TCGAbiolinksGUI](http://bioconductor.org/packages/TCGAbiolinksGUI/)). 
 
 Another bioconductor package will also be introduced called 
@@ -91,3 +96,5 @@ bioc2017()
 ```{r sessioninfo, eval=TRUE}
 sessionInfo()
 ```
+
+# Bibliography
