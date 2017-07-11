@@ -35,16 +35,17 @@ The figure below hihglights the workflow part which will be covered in this sect
 ![Part of the workflow covered in this section](figures/workflow_TGCAbiolinks.png)
 
 
+
+# Downloading data (programatically version)
+
 ## Loading required libraries
 
-```{r vignette, eval=TRUE, message=FALSE,warning=F}
+```{r libs, eval=TRUE, message=FALSE,warning=F}
 library(TCGAbiolinks)
 library(SummarizedExperiment)
 library(DT)
 library(dplyr)
 ```
-
-# Downloading data
 
 ## Gene expression
 
@@ -109,14 +110,33 @@ met <- GDCprepare(query = query.met,
 
 The object created is a Sum
 ```{r tcgabiolinks-met-obj, eval=TRUE}
-library(SummarizedExperiment)
-library(DT)
-library(dplyr)
 met
 
 colData(met) %>% as.data.frame %>% datatable(options = list(scrollX = TRUE), rownames = TRUE)
 assay(met)[1:5,] %>% datatable (options = list(scrollX = TRUE), rownames = TRUE)
 rowRanges(met)
+```
+
+# Downloading data (graphical user interface version)
+
+## Loading GUI
+```{r gui, eval=FALSE, message=FALSE,warning=F}
+library(TCGAbiolinksGUI)
+TCGAbiolinksGUI()
+```
+
+## DNA methylation
+![Part of the workflow covered in this section](figures/gui_dnamet_query.png)
+![Part of the workflow covered in this section](figures/gui_dnamet_plots.png)
+
+![Part of the workflow covered in this section](figures/gui_dnamet_prepare.png)
+
+![Part of the workflow covered in this section](figures/gui_dnamet_prepare_completed.png)
+
+# Session Info
+
+```{r sessioninfo, eval=TRUE}
+sessionInfo()
 ```
 
 # Bibliography
