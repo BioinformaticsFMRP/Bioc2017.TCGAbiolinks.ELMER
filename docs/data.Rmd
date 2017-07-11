@@ -125,6 +125,21 @@ library(TCGAbiolinksGUI)
 TCGAbiolinksGUI()
 ```
 
+## Gene expression
+![Part of the workflow covered in this section](figures/gui_exp_query.png)
+
+![Part of the workflow covered in this section](figures/gui_exp_plots.png)
+![Part of the workflow covered in this section](figures/gui_exp_prepare.png)
+![Part of the workflow covered in this section](figures/gui_exp_prepare_completed.png)
+![Part of the workflow covered in this section](figures/gui_visualize_se.png)
+![Part of the workflow covered in this section](figures/gui_se_select.png)
+![Part of the workflow covered in this section](figures/gui_se_selection.png)
+
+![Part of the workflow covered in this section](figures/gui_se_sampleinfo.png)
+![Part of the workflow covered in this section](figures/gui_exp_se_assay.png)
+![Part of the workflow covered in this section](figures/gui_exp_se_features.png)
+
+
 ## DNA methylation
 ![Part of the workflow covered in this section](figures/gui_dnamet_query.png)
 ![Part of the workflow covered in this section](figures/gui_dnamet_plots.png)
