@@ -1,0 +1,116 @@
+---
+title: "Integrative analysis workshop with TCGAbiolinks and ELMER"
+author: "Tiago Chedraoui Silva, Simon Coetzee, Ben Berman, Houtan Noushmehr"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: true
+    number_sections: no
+    theme: flatly
+    highlight: tango
+    mathjax: null
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    css: style.css
+bibliography: bibliography.bib    
+vignette: >
+  %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE,hide=TRUE, message=FALSE,warning=FALSE}
+devtools::load_all(".")
+```
+
+# Introduction
+
+In this section we will learn to search and download DNA methylation (epigenetic) and 
+gene expression (transcription) data from the newly created 
+[NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/) 
+and prepare them into a Summarized Experiment object. 
+
+The figure below hihglights the workflow part which will be covered in this section.
+![Part of the workflow covered in this section](figures/workflow_TGCAbiolinks.png)
+
+
+
+# Downloading data 
+
+## Loading GUI
+
+First we will launch the GUI for TCGAbiolinks.
+```{r gui, eval=FALSE, message=FALSE,warning=F}
+library(TCGAbiolinksGUI)
+TCGAbiolinksGUI()
+```
+
+## Gene expression
+
+After launching the GUI select the `GDC Data/Get GDC data/Molecular data`.
+![](figures/gui_menu.png)
+
+Fill the search fields with the same information below and click on `Visualize Data`.
+If you select `Filter  using clinical data` under the clinical filter we will also plot
+the clinical information.
+![](figures/gui_exp_query.png)
+
+A plot with the summary of the data will be shown. 
+![](figures/gui_exp_plots.png)
+Also, if you want more details you 
+can also open the `GDC search results: Results` section.
+
+![](figures/gui_exp_query_results.png)
+
+After the query is completed, you will be able to download the data and convert it to
+an R object in the `Download & Prepare` section.
+![](figures/gui_exp_prepare.png)
+If successful it will give you a message where the data was saved.
+![](figures/gui_exp_prepare_completed.png)
+## Visualizing the Summarized Experiment
+
+The integrative data container [SummarizedExperiment object](http://www.nature.com/nmeth/journal/v12/n2/fig_tab/nmeth.3252_F2.html) [@SummarizedExperiment,@huber2015orchestrating]
+contains 3 matrices, one with sample metadata, one with features metadata
+and one with the assay data.
+
+To visualize the SummarizedExperiment object select  `GDC Data/Manage SummarizedExperiment`:
+![](figures/gui_visualize_se.png)
+
+And click on `Select Summarized Experiment file`.
+![](figures/gui_se_select.png)
+Select the file downloaded from GDC.
+![](figures/gui_se_selection.png)
+You can access sample metadata
+![](figures/gui_se_sampleinfo.png)
+the assay data 
+![Accessing  assay information from SummarizedExperiment](figures/gui_exp_se_assay.png)
+
+or the features metadata
+![Accessing features information from SummarizedExperiment ](figures/gui_exp_se_features.png)
+
+
+## DNA methylation
+
+Again, fill the search fields with the same information below and click on `Visualize Data`.
+If you select `Filter using clinical data` under the clinical filter we will also plot
+the clinical information.
+
+![](figures/gui_dnamet_query.png)
+A plot with the summary of the data will be shown.
+![](figures/gui_dnamet_plots.png)
+
+After the query is completed, you will be able to download the data and convert it to
+an R object in the `Download & Prepare` section.
+![](figures/gui_dnamet_prepare.png)
+
+If successful it will give you a message where the data was saved.
+![](figures/gui_dnamet_prepare_completed.png)
+
+# Session Info
+
+```{r sessioninfo, eval=TRUE}
+sessionInfo()
+```
+
+# Bibliography

@@ -20,6 +20,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, echo = FALSE,hide=TRUE, message=FALSE,warning=FALSE}
+devtools::load_all(".")
+```
+
 # Introduction
 
 Another Bioconductor package we will also be introduce is called 
@@ -52,22 +56,43 @@ library(dplyr)
 # Analysis
 
 ## Create MultiAssayExperiment object
-```{r mae, eval=FALSE, message=FALSE,warning=F}
+
+
+A Multi Assay Experiment object from the `r BiocStyle::Biocpkg("MultiAssayExperiment")` 
+package is the input for multiple main functions of `r BiocStyle::Biocpkg("ELMER")`. 
+To create it you can use the `createMAE` function.
+
+But instead of using the data downloaded previously we will use one with more samples provided
+in this package.
+```{r data, eval=TRUE, message=FALSE, warning=F}
 library(MultiAssayExperiment)
-distal.probes <- get.feature.probe(genome = "hg38", 
-                                   met.platform = "450K", 
-                                   rm.chr = paste0("chr",c(2:22,"X","Y")))
+lusc.exp
+lusc.met
+```
+
+Also we will need to filter the probes in the MAE to select only distal probes.
+```{r distal probes, eval=TRUE, message=FALSE, warning=F}
+distal.probes <- get.feature.probe(genome = "hg38", met.platform = "450K")
+```
+
+The `createMAE` function will receive both DNA methylation and gene expression objects.
+Also `filter.probes` argument will select only probes in the regions of the distal.probes
+object. 
+
+```{r mae, eval=TRUE, message=FALSE, warning=F}
+library(MultiAssayExperiment)
+mae <- createMAE(exp = lusc.exp, 
+                 met = lusc.met,
+                 save = TRUE,
+                 linearize.exp = TRUE,
+                 filter.probes = distal.probes,
+                 save.filename = "mae_bioc2017.rda",
+                 met.platform = "450K",
+                 genome = "hg19",
+                 TCGA = TRUE)
 mae
-mae <- createMAE(exp = GeneExp, 
-                  met = Meth,
-                  save = FALSE,
-                  linearize.exp = TRUE,
-                  filter.probes = distal.probes,
-                  save.filename = "mae_bioc2017.rda",
-                  met.platform = "450K",
-                  genome = "hg19",
-                  TCGA = TRUE)
 colData(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRUE))
+sampleMap(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRUE))
 ```
 
 ## Identifying differentially methylated probes
@@ -75,7 +100,7 @@ colData(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRU
 This step is to identify DNA methylation changes at distal enhancer probes which is
 carried out by function `get.diff.meth`.
 
-```{r,eval=FALSE, message=FALSE}
+```{r,eval=TRUE, message=FALSE}
 
 sig.diff <- get.diff.meth(mae, 
                           group.col = "definition",

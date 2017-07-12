@@ -8,7 +8,42 @@ navbar:
       href: Bioc2017.html
     - text: "Get Data"
       icon: fa-database
-      href: data.html
+      menu:
+        - text: "Packages: TCGAbiolinks/TCGAbiolinksGUI"
+        - text: "Programatically"
+          href: data.html
+        - text: "Graphical User interface"
+          href: data_gui.html
     - text: "Analysis"
       icon: fa-flask
       href: analysis.html
+  right:
+    - icon: fa-book fa-lg
+      menu:
+        - text: "TCGAbiolinks"
+        - text: "Github"
+          href: https://github.com/BioinformaticsFMRP/TCGAbiolinks
+        - text: "Bioconductor"
+          href: http://bioconductor.org/packages/devel/bioc/html/TCGAbiolinks.html
+        - text: "---------"
+        - text: "ELMER"
+        - text: "Github"
+          href: https://github.com/tiagochst/ELMER
+        - text: "Bioconductor"
+          href: http://bioconductor.org/packages/devel/bioc/html/ELMER.html
+        - text: "---------"
+        - text: "ELMER.data"
+        - text: "Github"
+          href: https://github.com/tiagochst/ELMER
+        - text: "Bioconductor"
+          href: http://bioconductor.org/packages/devel/bioc/html/ELMER.html
+    - icon: fa-users fa-lg
+      menu:
+        - text: "Cedars-sinai BFG"
+        - icon: fa-twitter fa-lg
+        - text: "center4bfg"
+          href: https://twitter.com/center4bfg
+        - icon: fa-home fa-lg
+        - text: "center4bfg.org"
+          href: center4bfg.org
+
