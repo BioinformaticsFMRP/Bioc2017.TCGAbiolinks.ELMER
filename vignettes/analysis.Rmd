@@ -102,7 +102,7 @@ carried out by function `get.diff.meth`.
 
 ```{r,eval=TRUE, message=FALSE}
 
-sig.diff <- get.diff.meth(mae, 
+sig.diff <- get.diff.meth(data = mae, 
                           group.col = "definition",
                           group1 =  "Primary solid Tumor",
                           group2 = "Solid Tissue Normal",
@@ -121,6 +121,85 @@ as.data.frame(sig.diff)  %>% datatable(options = list(scrollX = TRUE))
 dir(path = "result", pattern = "getMethdiff")  
 ```
 
+```{r,eval=TRUE, message=FALSE}
+nearGenes <- GetNearGenes(data = mae, 
+                         probes = sig.diff$probe, 
+                         numFlankingGenes = 20, # 10 upstream and 10 dowstream genes
+                         cores = 1)
+
+Hypo.pair <- get.pair(data = mae,
+                      group.col = "definition",
+                      group1 =  "Primary solid Tumor",
+                      group2 = "Solid Tissue Normal",
+                      nearGenes = nearGenes,
+                      minSubgroupFrac = 0.4, # % of samples to use in to create groups U/M
+                      permu.dir = "result/permu",
+                      permu.size = 100, # Please set to 100000 to get significant results
+                      pvalue = 0.05,   
+                      Pe = 0.01,       # Please set to 0.001 to get significant results
+                      filter.probes = TRUE, # See preAssociationProbeFiltering function
+                      filter.percentage = 0.05,
+                      filter.portion = 0.3,
+                      dir.out = "result",
+                      cores = 1,
+                      label = "hypo")
+
+Hypo.pair %>% datatable(options = list(scrollX = TRUE))
+# get.pair automatically save output files. 
+#getPair.hypo.all.pairs.statistic.csv contains statistics for all the probe-gene pairs.
+#getPair.hypo.pairs.significant.csv contains only the significant probes which is 
+# same with Hypo.pair.
+dir(path = "result", pattern = "getPair") 
+```
+
+```{r,eval=TRUE, message=FALSE}
+# Identify enriched motif for significantly hypomethylated probes which 
+# have putative target genes.
+
+Sig.probes.paired <- read.csv("result/getPair.hypo.pairs.significant.csv",
+                              stringsAsFactors=FALSE)[,1]  
+head(Sig.probes.paired) # significantly hypomethylated probes with putative target genes
+
+enriched.motif <- get.enriched.motif(data = mae,
+                                     min.motif.quality = "B", # Default: options A, B, C, D
+                                     probes = Sig.probes.paired, 
+                                     dir.out = "result", 
+                                     label = "hypo",
+                                     min.incidence = 10,
+                                     lower.OR = 1.1)
+names(enriched.motif) # enriched motifs
+head(enriched.motif["P73_HUMAN.H10MO.A"]) ## probes in the given set that have TP53 motif.
+
+# get.enriched.motif automatically save output files. 
+# getMotif.hypo.enriched.motifs.rda contains enriched motifs and the probes with the motif. 
+# getMotif.hypo.motif.enrichment.csv contains summary of enriched motifs.
+dir(path = "result", pattern = "getMotif") 
+
+# motif enrichment figure will be automatically generated.
+dir(path = "result", pattern = "motif.enrichment.pdf") 
+```
+
+```{r,eval=TRUE, message=FALSE}
+## identify regulatory TF for the enriched motifs
+TF <- get.TFs(data = mae, 
+              group.col = "definition",
+              group1 =  "Primary solid Tumor",
+              group2 = "Solid Tissue Normal",
+              minSubgroupFrac = 1.0,
+              enriched.motif = enriched.motif,
+              dir.out = "result", 
+              cores = 1, 
+              label = "hypo")
+
+# get.TFs automatically save output files. 
+# getTF.hypo.TFs.with.motif.pvalue.rda contains statistics for all TF with average 
+# DNA methylation at sites with the enriched motif.
+# getTF.hypo.significant.TFs.with.motif.summary.csv contains only the significant probes.
+dir(path = "result", pattern = "getTF")  
+
+# TF ranking plot based on statistics will be automatically generated.
+dir(path = "result/TFrankPlot_family/", pattern = "pdf") 
+```
 # Session Info
 
 ```{r sessioninfo, eval=TRUE}

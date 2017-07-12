@@ -39,11 +39,15 @@ navbar:
           href: http://bioconductor.org/packages/devel/bioc/html/ELMER.html
     - icon: fa-users fa-lg
       menu:
-        - text: "Cedars-sinai BFG"
+        - text: "Cedars-sinai"
         - icon: fa-twitter fa-lg
-        - text: "center4bfg"
+          text: "center4bfg"
           href: https://twitter.com/center4bfg
         - icon: fa-home fa-lg
-        - text: "center4bfg.org"
+          text: "center4bfg.org"
+          href: center4bfg.org
+        - text: "University of São Paulo (USP)"
+        - icon: fa-home fa-lg
+          text: "omicslab.org"
           href: center4bfg.org
 
