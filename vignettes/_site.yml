@@ -37,7 +37,7 @@ navbar:
           href: https://github.com/tiagochst/ELMER
         - text: "Bioconductor"
           href: http://bioconductor.org/packages/devel/bioc/html/ELMER.html
-    - icon: fa-users fa-lg
+    - icon: fa-info-circle fa-lg
       menu:
         - text: "Cedars-sinai"
         - icon: fa-twitter fa-lg
@@ -45,9 +45,16 @@ navbar:
           href: https://twitter.com/center4bfg
         - icon: fa-home fa-lg
           text: "center4bfg.org"
-          href: center4bfg.org
+          href: https://center4bfg.org
         - text: "University of São Paulo (USP)"
         - icon: fa-home fa-lg
-          text: "omicslab.org"
-          href: center4bfg.org
-
+          text: "fmrp.usp.br"
+          href: http://www.fmrp.usp.br/?lang=en
+        - text: "---------"
+        - text: "Fundings"
+        - text: "FAPESP (16/10436-9)"
+          href: http://www.bv.fapesp.br/en/pesquisa/?sort=-data_inicio&q2=%28instituicao%3A%22Cedars-Sinai+Medical+Center%22%29+AND+%28%28bolsa_en_exact%3A%22Scholarships+abroad%22+AND+situacao_en_exact%3A%22Ongoing%22%29%29
+        - text: "NCI ITCR program (1U01CA184826)"
+          href: https://itcr.nci.nih.gov/
+        - text: "Genomic Data Analysis Network NIH/NCI  (1U24CA210969)"
+          href: https://projectreporter.nih.gov/project_info_description.cfm?aid=9210719&icde=31197242&ddparam=&ddvalue=&ddsub=&cr=1&csb=default&cs=ASC

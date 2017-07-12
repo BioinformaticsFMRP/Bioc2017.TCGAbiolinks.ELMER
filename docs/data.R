@@ -44,10 +44,6 @@ colData(met) %>% as.data.frame %>% datatable(options = list(scrollX = TRUE), row
 assay(met)[1:5,] %>% datatable (options = list(scrollX = TRUE), rownames = TRUE)
 rowRanges(met)
 
-## ----gui, eval=FALSE, message=FALSE,warning=F----------------------------
-#  library(TCGAbiolinksGUI)
-#  TCGAbiolinksGUI()
-
 ## ----sessioninfo, eval=TRUE----------------------------------------------
 sessionInfo()
 

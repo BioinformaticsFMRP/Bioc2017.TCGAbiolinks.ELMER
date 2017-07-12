@@ -20,7 +20,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, echo = FALSE,hide=TRUE, message=FALSE,warning=FALSE}
+```{r, echo = FALSE,hide=TRUE, message=FALSE,warning = FALSE}
 devtools::load_all(".")
 ```
 
@@ -47,15 +47,13 @@ The figure below hihglights the workflow part which will be covered in this sect
 
 ## Loading required libraries
 
-```{r vignette, eval=TRUE, message=FALSE,warning=F}
+```{r vignette, eval=TRUE, message=FALSE,warning = FALSE}
 library(ELMER)
 library(DT)
 library(dplyr)
 ```
 
-# Analysis
-
-## Create MultiAssayExperiment object
+# ELMER data input
 
 
 A Multi Assay Experiment object from the `r BiocStyle::Biocpkg("MultiAssayExperiment")` 
@@ -64,14 +62,14 @@ To create it you can use the `createMAE` function.
 
 But instead of using the data downloaded previously we will use one with more samples provided
 in this package.
-```{r data, eval=TRUE, message=FALSE, warning=F}
+```{r data, eval=TRUE, message=FALSE, warning = FALSE}
 library(MultiAssayExperiment)
 lusc.exp
 lusc.met
 ```
 
 Also we will need to filter the probes in the MAE to select only distal probes.
-```{r distal probes, eval=TRUE, message=FALSE, warning=F}
+```{r distal probes, eval=TRUE, message=FALSE, warning = FALSE}
 distal.probes <- get.feature.probe(genome = "hg38", met.platform = "450K")
 ```
 
@@ -79,7 +77,7 @@ The `createMAE` function will receive both DNA methylation and gene expression o
 Also `filter.probes` argument will select only probes in the regions of the distal.probes
 object. 
 
-```{r mae, eval=TRUE, message=FALSE, warning=F}
+```{r mae, eval=TRUE, message=FALSE, warning = FALSE}
 library(MultiAssayExperiment)
 mae <- createMAE(exp = lusc.exp, 
                  met = lusc.met,
@@ -95,13 +93,15 @@ colData(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRU
 sampleMap(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRUE))
 ```
 
+
+# Analysis
+
 ## Identifying differentially methylated probes
 
 This step is to identify DNA methylation changes at distal enhancer probes which is
 carried out by function `get.diff.meth`.
 
-```{r,eval=TRUE, message=FALSE}
-
+```{r,eval=TRUE, message=FALSE, warning = FALSE, results = "hide"}
 sig.diff <- get.diff.meth(data = mae, 
                           group.col = "definition",
                           group1 =  "Primary solid Tumor",
@@ -112,7 +112,9 @@ sig.diff <- get.diff.meth(data = mae,
                           cores = 1, 
                           dir.out ="result", 
                           pvalue = 0.01)
+```
 
+```{r,eval=TRUE, message=FALSE, warning = FALSE}
 as.data.frame(sig.diff)  %>% datatable(options = list(scrollX = TRUE))
 # get.diff.meth automatically save output files. 
 # getMethdiff.hypo.probes.csv contains statistics for all the probes.
@@ -121,7 +123,9 @@ as.data.frame(sig.diff)  %>% datatable(options = list(scrollX = TRUE))
 dir(path = "result", pattern = "getMethdiff")  
 ```
 
-```{r,eval=TRUE, message=FALSE}
+## Identifying putative probe-gene pairs
+
+```{r, eval = TRUE, message = FALSE, warning = FALSE, results = "hide"}
 nearGenes <- GetNearGenes(data = mae, 
                          probes = sig.diff$probe, 
                          numFlankingGenes = 20, # 10 upstream and 10 dowstream genes
@@ -136,14 +140,16 @@ Hypo.pair <- get.pair(data = mae,
                       permu.dir = "result/permu",
                       permu.size = 100, # Please set to 100000 to get significant results
                       pvalue = 0.05,   
-                      Pe = 0.01,       # Please set to 0.001 to get significant results
+                      Pe = 0.01, # Please set to 0.001 to get significant results
                       filter.probes = TRUE, # See preAssociationProbeFiltering function
                       filter.percentage = 0.05,
                       filter.portion = 0.3,
                       dir.out = "result",
                       cores = 1,
                       label = "hypo")
+```
 
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
 Hypo.pair %>% datatable(options = list(scrollX = TRUE))
 # get.pair automatically save output files. 
 #getPair.hypo.all.pairs.statistic.csv contains statistics for all the probe-gene pairs.
@@ -152,17 +158,13 @@ Hypo.pair %>% datatable(options = list(scrollX = TRUE))
 dir(path = "result", pattern = "getPair") 
 ```
 
-```{r,eval=TRUE, message=FALSE}
+
+## Motif enrichment analysis on the selected probes
+```{r,eval=TRUE, message=FALSE, warning = FALSE}
 # Identify enriched motif for significantly hypomethylated probes which 
 # have putative target genes.
-
-Sig.probes.paired <- read.csv("result/getPair.hypo.pairs.significant.csv",
-                              stringsAsFactors=FALSE)[,1]  
-head(Sig.probes.paired) # significantly hypomethylated probes with putative target genes
-
 enriched.motif <- get.enriched.motif(data = mae,
-                                     min.motif.quality = "B", # Default: options A, B, C, D
-                                     probes = Sig.probes.paired, 
+                                     probes = Hypo.pair$Probe, 
                                      dir.out = "result", 
                                      label = "hypo",
                                      min.incidence = 10,
@@ -179,7 +181,10 @@ dir(path = "result", pattern = "getMotif")
 dir(path = "result", pattern = "motif.enrichment.pdf") 
 ```
 
-```{r,eval=TRUE, message=FALSE}
+
+## Identifying regulatory TFs
+
+```{r,eval=TRUE, message=FALSE, warning = FALSE, results = "hide"}
 ## identify regulatory TF for the enriched motifs
 TF <- get.TFs(data = mae, 
               group.col = "definition",
@@ -190,7 +195,9 @@ TF <- get.TFs(data = mae,
               dir.out = "result", 
               cores = 1, 
               label = "hypo")
+```
 
+```{r,eval=TRUE, message=FALSE, warning = FALSE}
 # get.TFs automatically save output files. 
 # getTF.hypo.TFs.with.motif.pvalue.rda contains statistics for all TF with average 
 # DNA methylation at sites with the enriched motif.
