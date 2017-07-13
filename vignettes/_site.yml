@@ -16,7 +16,12 @@ navbar:
           href: data_gui.html
     - text: "Analysis"
       icon: fa-flask
-      href: analysis.html
+      menu:
+        - text: "Packages: ELMER/TCGAbiolinksGUI"
+        - text: "Programatically"
+          href: analysis.html
+        - text: "Graphical User interface"
+          href: analysis_gui.html
   right:
     - icon: fa-book fa-lg
       menu:

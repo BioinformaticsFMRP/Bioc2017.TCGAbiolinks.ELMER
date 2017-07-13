@@ -1,0 +1,175 @@
+---
+title: "Integrative analysis workshop with TCGAbiolinks and ELMER"
+author: "Tiago Chedraoui Silva, Simon Coetzee, Ben Berman, Houtan Noushmehr"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: true
+    number_sections: no
+    theme: flatly
+    highlight: tango
+    mathjax: null
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    css: style.css
+bibliography: bibliography.bib    
+vignette: >
+  %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE,hide=TRUE, message=FALSE,warning = FALSE}
+devtools::load_all(".")
+```
+
+# Introduction
+
+Another Bioconductor package we will also be introduce is called 
+[ELMER](http://bioconductor.org/packages/ELMER/) [@yao2015inferring,@elmer2] which allows 
+one to identify DNA methylation changes in distal regulatory regions and correlate 
+these signatures with expression of nearby genes to identify transcriptional 
+targets associated with cancer. For these distal probes correlated with a gene, 
+a transcription factor motif analysis is performed followed by expression 
+analysis of transcription factors to infer upstream regulators.
+
+We expect that participants of this workshop will understand the integrative 
+analysis performed by using 
+[TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) + 
+[ELMER](http://bioconductor.org/packages/ELMER/), as well as be able to execute 
+it from the data acquisition process to the final interpretation of the results. 
+The workshop assumes users with an intermediate level of familiarity with R, 
+and basic understanding of tumor biology. 
+
+The figure below hihglights the workflow part which will be covered in this section.
+![Part of the workflow covered in this section](figures/workflow_ELMER.png)
+
+## Loading GUI
+
+First we will launch the GUI for TCGAbiolinks.
+```{r gui, eval=FALSE, message=FALSE,warning=F}
+library(TCGAbiolinksGUI)
+TCGAbiolinksGUI()
+```
+
+# Downloading data
+
+Please download this two objects:
+
+[Gene expression Summarized Experiment](https://github.com/BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER/raw/master/data/lusc.exp.rda)
+[DNA methylation Summarized Experiment](https://github.com/BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER/raw/master/data/lusc.met.rda)
+
+# Analysis
+
+
+## Create MultiAssayExperiment object
+
+To create the MultiAssayExperiment object go to `Integrative analysis/ELMER/Create input data`.
+
+![](figures/elmer_data_menu.png)
+
+Select the DNA methylation object downloaded previously.
+![](figures/elmer_data_dnamet_select.png)
+![](figures/elmer_data_dnamet.png)
+
+Select the gene expression object downloaded previously.
+![](figures/elmer_data_exp_select.png)
+![](figures/elmer_data_exp.png)
+
+Fill the field `Save as:` and click on Create MAE object.
+![](figures/elmer_data_final.png)
+
+The object will be created.
+![](figures/elmer_data_saved.png)
+
+## Perform analysis
+
+To perform ELMER analysis go to `Integrative analysis/ELMER/Analysis`.
+
+![](figures/elmer_analysis_menu.png)
+
+Select the MAE data created in the previous section.
+
+![](figures/elmer_analysis_data.png)
+
+Select the groups that will be analysed:  Primary solid Tumor and Solid Tissue Normal.
+
+![](figures/elmer_analysis_groups.png)
+
+We will identify probes that are hypomethylated in Primary solid Tumor compared to Solid Tissue Normal.
+
+![](figures/elmer_analysis_diffmeth.png)
+
+For the significant differently methylated probes identified before we will correlated
+with the 20 nearest genes. Change the value of the field `Number of permutations` to `100`,
+`Raw P-value cut-off` to `0.05` and `Empirical P value cut-off` to `0.01`.
+
+![](figures/elmer_analysis_pair.png)
+
+There will be no changes in the step 3.
+
+![](figures/elmer_analysis_motif.png)
+
+There will be no changes in the step 4.
+![](figures/elmer_analysis_TF.png)
+
+Click on `Run the analysis`.
+![](figures/elmer_analysis_final.png)
+
+If the analysis identified significant regulatory TF the results will be saved into an R object.
+![](figures/elmer_analysis_message.png)
+
+## Visualize results
+
+To visualize the results go to `Integrative analysis/ELMER/Visualize results`.
+
+![](figures/elmer_visualize_results.png)
+
+Click on `Select results` and select the object created on the previous section.
+![](figures/elmer_visualize_select1.png)
+![](figures/elmer_visualize_select2.png)
+
+You will be able to visualize the correlation between
+DNA methyation levels and gene expression selecting a pair of gene and probe.
+![](figures/elmer_visualize_plot_scatter_byPair.png)
+
+A probe and its near genes.
+![](figures/elmer_visualize_plot_scatter_byProbe.png)
+
+Or the avarage DNA methylation levels of probes of a Motif vs the expression of a 
+TF.
+![](figures/elmer_visualize_plot_scatter_byTF.png)
+
+For each enriched motif you can verify the ranking of sigificances between the correlation
+of DNA methylation level on the significant paired probes with that motif vs the TF expression (for all human TF).  
+![](figures/elmer_visualize_tfraningplot.png)
+The enrichement of each motif can be visualized.
+![](figures/elemer_visualize_motif_enrichment.png)
+
+You can take a look for a gene which was the probe linked.
+![](figures/elemer_visualize_schematic_gene.png)
+
+You can see the plot and its neraby genes.
+![](figures/elemer_visualize_schematic_probe.png)
+
+It is possible to visualize the table with the significant differently methylated probes. 
+![](figures/elmer_visualize_table_sigprobes.png)
+
+It is possible to visualize the table with the pairs genes probes that have an negative correlation between
+DNA methyation levels and gene expression. 
+![](figures/elmer_visualize_table_pair.png)
+
+It is possible to visualize the table with the enriched motifs.
+![](figures/elmer_visualize_table_enriched_motif.png)
+
+It is possible to visualize the table with the candidates regulatory TF.
+![](figures/elmer_visualize_table_tf.png)
+
+# Session Info
+
+```{r sessioninfo, eval=TRUE}
+sessionInfo()
+```
+
+# Bibliography

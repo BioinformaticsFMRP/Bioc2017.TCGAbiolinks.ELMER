@@ -53,9 +53,7 @@ library(DT)
 library(dplyr)
 ```
 
-# Analysis
-
-## Create MultiAssayExperiment object
+# ELMER data input
 
 
 A Multi Assay Experiment object from the `r BiocStyle::Biocpkg("MultiAssayExperiment")` 
@@ -95,6 +93,9 @@ colData(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRU
 sampleMap(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRUE))
 ```
 
+
+# Analysis
+
 ## Identifying differentially methylated probes
 
 This step is to identify DNA methylation changes at distal enhancer probes which is
@@ -121,6 +122,8 @@ as.data.frame(sig.diff)  %>% datatable(options = list(scrollX = TRUE))
 # is the same with sig.diff
 dir(path = "result", pattern = "getMethdiff")  
 ```
+
+## Identifying putative probe-gene pairs
 
 ```{r, eval = TRUE, message = FALSE, warning = FALSE, results = "hide"}
 nearGenes <- GetNearGenes(data = mae, 
@@ -155,6 +158,8 @@ Hypo.pair %>% datatable(options = list(scrollX = TRUE))
 dir(path = "result", pattern = "getPair") 
 ```
 
+
+## Motif enrichment analysis on the selected probes
 ```{r,eval=TRUE, message=FALSE, warning = FALSE}
 # Identify enriched motif for significantly hypomethylated probes which 
 # have putative target genes.
@@ -176,18 +181,22 @@ dir(path = "result", pattern = "getMotif")
 dir(path = "result", pattern = "motif.enrichment.pdf") 
 ```
 
+
+## Identifying regulatory TFs
+
 ```{r,eval=TRUE, message=FALSE, warning = FALSE, results = "hide"}
 ## identify regulatory TF for the enriched motifs
 TF <- get.TFs(data = mae, 
               group.col = "definition",
               group1 =  "Primary solid Tumor",
               group2 = "Solid Tissue Normal",
-              minSubgroupFrac = 1.0,
+              minSubgroupFrac = 0.4,
               enriched.motif = enriched.motif,
               dir.out = "result", 
               cores = 1, 
               label = "hypo")
 ```
+
 ```{r,eval=TRUE, message=FALSE, warning = FALSE}
 # get.TFs automatically save output files. 
 # getTF.hypo.TFs.with.motif.pvalue.rda contains statistics for all TF with average 
