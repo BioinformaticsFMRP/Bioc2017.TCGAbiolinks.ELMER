@@ -115,17 +115,12 @@ to the lower experiment quintile (20% of experiment samples with the lowest meth
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | data | A `multiAssayExperiment` with DNA methylation and Gene Expression data. See `createMAE` function. |
 | diff.dir |  A character can be "hypo" or "hyper", showing differential methylation dirction.  It can be "hypo" which is only selecting hypomethylated probes;  "hyper" which is only selecting hypermethylated probes |
-| cores | A interger which defines the number of cores to be used in parallel process. Default is 1: no parallel process. |
 | minSubgroupFrac |  A number ranging from 0 to 1,specifying the fraction of extreme samples from group 1 and group 2  that are used to identify the differential DNA methylation.  The default is 0.2 because we typically want to be able to detect a specific (possibly unknown) molecular subtype among tumor; these subtypes often make up only a minority of samples, and 20\% was chosen as a lower bound for the purposes of statistical power. If you are using pre-defined group labels, such as treated replicates vs. untreated replicated, use a value of 1.0 (***Supervised*** mode) |
 | pvalue | A number specifies the significant P value (adjusted P value by BH) cutoff for selecting significant hypo/hyper-methylated probes. Default is 0.01 |
 | group.col | A column defining the groups of the sample. You can view the available columns using: `colnames(MultiAssayExperiment::colData(data))`. |
 | group1 | A group from group.col. ELMER will run group1 vs group2. That means, if direction is hyper, get probes hypermethylated in group 1 compared to group 2. |
 | group2 | A group from group.col. ELMER will run group1 vs group2. That means, if direction is hyper, get probes hypermethylated in group 1 compared to group 2. |
-| test | Statistical test to be used. Options: t.test (DEFAULT), wilcox.test |
 | sig.dif | A number specifies the smallest DNA methylation difference as a cutoff for selecting significant hypo/hyper-methylated probes. Default is 0.3. |
-| dir.out | A path specify the directory for outputs. Default is is current directory. |
-| save | A logic. When TRUE, two getMethdiff.XX.csv files will be generated (see detail) |
-
 </div>
 </div>
 </div>
@@ -154,9 +149,50 @@ dir(path = "result", pattern = "getMethdiff")
 
 ## Identifying putative probe-gene pairs
 
+This step is to link enhancer probes with methylation changes to target genes with expression
+changes and report the putative target gene for selected probes. This is carried out
+by function `get.pair`. 
+
+For each distal probe with differential methylation the closest 10 upstream 
+genes and the closest 10 downstream genes were tested for correlation between 
+methylation of the probe and expression of the gene.
+Thus, exactly 20 statistical 
+tests were performed for each probe, as follows. For each probe-gene pair, 
+the samples (all experiment samples and control samples) were divided into two 
+groups: the M group, which consisted of the upper methylation quintile (the 20%
+of samples with the highest methylation at the enhancer probe), and the U group, 
+which consisted of the lowest methylation quintile (the 20% of samples with the 
+lowest methylation.)
+For each probe-gene pair tested, the raw p-value `Pr` was corrected for multiple 
+hypothesis using a permutation approach.
+
+![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/paper_get.pairs.png)
 
 
-![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/elmer_data_final.png)
+
+<div class="panel panel-info">
+<div class="panel-heading">Main get.pair arguments </div>
+<div class="panel-body">
+| Argument | Description |
+
+| Argument          | Description                                                                                                                                                                                                                                                                                                                                                         |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| data              | A multiAssayExperiment with DNA methylation and Gene Expression data. See createMAE function.                                                                                                                                                                                                                                                                       |
+| nearGenes         | Can be either a list containing output of GetNearGenes function or path of rda file containing output of `GetNearGenes` function.                                                                                                                                                                                                                                     |
+| minSubgroupFrac        | A number ranging from 0 to 1.0 specifying the percentage of samples used to create groups U (unmethylated) and M (methylated) used to link probes to genes. Default is 0.4 (lowest quintile samples will be in the U group and the highest quintile samples in the M group).                                                                                                                                                                                                                                             |
+| permu.size        | A number specify the times of permuation. Default is 10000.                                                                                                                                                                                                                                                                                                         |
+| pvalue            | A number specify the raw p-value cutoff for defining signficant pairs. Default is 0.05. It will select the significant P value cutoff before calculating the empirical p-values.                                                                                                                                                           |
+| Pe                | A number specify the empirical p-value cutoff for defining signficant pairs. Default is 0.001.                                                                                                                                                                                                                        |
+| group.col         | A column defining the groups of the sample. You can view the available columns using: `colnames(MultiAssayExperiment::colData(data))`.                                               |
+| group1 | A group from group.col. |
+| group2 | A group from group.col. |
+| filter.probes     | Should filter probes by selecting only probes that have at least a certain number of samples below and above a certain cut-off. See `preAssociationProbeFiltering` function.                                                                                                                                                                                          |
+| filter.portion    | A number specify the cut point to define binary methlation level for probe loci. Default is 0.3. When beta value is above 0.3, the probe is methylated and vice versa. For one probe, the percentage of methylated and unmethylated samples should be above filter.percentage value. Only used if filter.probes is TRUE. See preAssociationProbeFiltering function. |
+| filter.percentage | Minimum percentage of samples to be considered in methylated and unmethylated for the filter.portion option. Default 5%. Only used if filter.probes is TRUE. See preAssociationProbeFiltering function.                                                                                                                                                             |
+</div>
+</div>
+</div>
+
 
 ```{r, eval = TRUE, message = FALSE, warning = FALSE, results = "hide"}
 nearGenes <- GetNearGenes(data = mae, 
@@ -193,6 +229,47 @@ dir(path = "result", pattern = "getPair")
 
 
 ## Motif enrichment analysis on the selected probes
+
+This step is to identify enriched motif in a set of probes which is carried out by
+function `get.enriched.motif`.
+
+This function uses a pre-calculated data `Probes.motif` which was generated using HOMER with a $p-value \le 10^{–4}$ 
+to scan a $\pm250bp$  region around each probe using HOmo sapiens 
+COmprehensive MOdel COllection [http://hocomoco.autosome.ru/](HOCOMOCO) v10 [@kulakovskiy2016hocomoco] position
+weight matrices (PWMs). 
+For each probe set tested (i.e. the list of gene-linked hypomethylated probes in a given 
+group), a motif enrichment Odds Ratio and a 95% confidence interval were 
+calculated using following formulas:
+$$ p= \frac{a}{a+b} $$
+$$ P= \frac{c}{c+d} $$
+$$ Odds\quad  Ratio = \frac{\frac{p}{1-p}}{\frac{P}{1-P}} $$
+$$ SD = \sqrt{\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}} $$
+$$ lower\quad boundary\quad of\quad  95\%\quad  confidence\quad  interval = \exp{(\ln{OR}-SD)} $$
+
+where `a` is the number of probes within the selected probe set that contain one 
+or more motif occurrences; `b` is the number of probes within the selected probe 
+set that do not contain a motif occurrence; `c` and `d` are the same counts within 
+the entire enhancer probe set. A probe set was considered significantly enriched 
+for a particular motif if the 95% confidence interval of the Odds Ratio was 
+greater than 1.1 (specified by option `lower.OR`, 1.1 is default), and the motif 
+occurred at least 10 times (specified by option `min.incidence`. 10 is default) in 
+the probe set. As described in the text, Odds Ratios were also used for ranking 
+candidate motifs. 
+
+
+<div class="panel panel-info">
+<div class="panel-heading">Main get.pair arguments </div>
+<div class="panel-body">
+| Argument | Description |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| data | A multi Assay Experiment from  createMAE function. If set and probes.motif/background probes are missing this will be used to get this other two arguments correctly. This argument is not require, you can set probes.motif and the backaground.probes manually. |
+| probes | A vector lists the name of probes to define the set of probes in which motif enrichment OR and confidence interval will be calculated. |
+| lower.OR | A number specifies the smallest lower boundary of 95% confidence interval for Odds Ratio. The motif with higher lower boudnary of 95% confidence interval for Odds Ratio than the number are the significantly enriched motifs (detail see reference). |
+| min.incidence | A non-negative integer specifies the minimum incidence of motif in the given probes set. 10 is default. |
+</div>
+</div>
+</div>
+
 ```{r,eval=TRUE, message=FALSE, warning = FALSE}
 # Identify enriched motif for significantly hypomethylated probes which 
 # have putative target genes.
@@ -217,7 +294,40 @@ dir(path = "result", pattern = "motif.enrichment.pdf")
 
 ## Identifying regulatory TFs
 
+
+This step is to identify regulatory TF whose expression associates with TF binding motif 
+DNA methylation which is carried out by function `get.TFs`.
+
+For each motif considered to be enriched within a particular probe set, it will
+compare the average DNA methylation at all distal enhancer probes within $\pm250bp$  
+of a motif occurrence, to the expression of human TFs. A statistical test 
+was performed for each motif-TF pair, as follows. The samples (all groups samples) 
+were divided into two groups: the M group, which consisted 
+of the 20% of samples with the highest average methylation at all motif-adjacent 
+probes, and the U group, which consisted of the 20% of samples with the lowest 
+methylation. For each candidate motif-TF pair, the Mann-Whitney U test was used to test 
+the null hypothesis that overall gene expression in group M was greater or equal 
+than that in group U.
+All TFs were ranked by the $-log_{10}(P_{r})$, and those falling within the top 5% of 
+this ranking were considered candidate upstream regulators. 
+
 ![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/paper_get_pairs.png)
+
+<div class="panel panel-info">
+<div class="panel-heading">Main get.pair arguments </div>
+<div class="panel-body">
+| Argument | Description |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| data | A multiAssayExperiment with DNA methylation and Gene Expression data. See `createMAE` function. |
+| enriched.motif | A list containing output of get.enriched.motif function or a path of XX.rda file containing output of get.enriched.motif function. |
+| group.col         | A column defining the groups of the sample. You can view the available columns using: `colnames(MultiAssayExperiment::colData(data))`.                
+| group1 | A group from group.col. |
+| group2 | A group from group.col. |
+| minSubgroupFrac |  A number ranging from 0 to 1 specifying the percentage of samples used to create the groups U (unmethylated)  and M (methylated) used to link probes to TF expression.  Default is 0.4 (lowest quintile of all samples will be in the  U group and the highest quintile of all samples in the M group). |
+</div>
+</div>
+</div>
+
 
 ```{r,eval=TRUE, message=FALSE, warning = FALSE, results = "hide"}
 ## identify regulatory TF for the enriched motifs

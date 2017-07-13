@@ -5,7 +5,7 @@ navbar:
   left:
     - text: "Home"
       icon: fa-home
-      href: Bioc2017.html
+      href: index.html
     - text: "Get Data"
       icon: fa-database
       menu:
@@ -25,6 +25,10 @@ navbar:
   right:
     - icon: fa-book fa-lg
       menu:
+        - text: "Bioc2017 workshop"
+        - text: "Github ELMER/TCGAbiolinks"
+          href: https://github.com/BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER
+        - text: "---------"
         - text: "TCGAbiolinks"
         - text: "Github"
           href: https://github.com/BioinformaticsFMRP/TCGAbiolinks
