@@ -101,6 +101,35 @@ sampleMap(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = T
 This step is to identify DNA methylation changes at distal enhancer probes which is
 carried out by function `get.diff.meth`.
 
+For each distal probe, the function first rank samples from group 1 and group 2 samples by their DNA methylation beta values. 
+To identify hypomethylated probes, the function compared the lower control quintile (20% of control samples with the lowest methylation) 
+to the lower experiment quintile (20% of experiment samples with the lowest methylation), using an unpaired one-tailed t-test.
+
+![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/paper_diff_meth.png)
+
+
+<div class="panel panel-info">
+<div class="panel-heading">Main get.diff.meth arguments </div>
+<div class="panel-body">
+| Argument | Description |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| data | A `multiAssayExperiment` with DNA methylation and Gene Expression data. See `createMAE` function. |
+| diff.dir |  A character can be "hypo" or "hyper", showing differential methylation dirction.  It can be "hypo" which is only selecting hypomethylated probes;  "hyper" which is only selecting hypermethylated probes |
+| cores | A interger which defines the number of cores to be used in parallel process. Default is 1: no parallel process. |
+| minSubgroupFrac |  A number ranging from 0 to 1,specifying the fraction of extreme samples from group 1 and group 2  that are used to identify the differential DNA methylation.  The default is 0.2 because we typically want to be able to detect a specific (possibly unknown) molecular subtype among tumor; these subtypes often make up only a minority of samples, and 20\% was chosen as a lower bound for the purposes of statistical power. If you are using pre-defined group labels, such as treated replicates vs. untreated replicated, use a value of 1.0 (***Supervised*** mode) |
+| pvalue | A number specifies the significant P value (adjusted P value by BH) cutoff for selecting significant hypo/hyper-methylated probes. Default is 0.01 |
+| group.col | A column defining the groups of the sample. You can view the available columns using: `colnames(MultiAssayExperiment::colData(data))`. |
+| group1 | A group from group.col. ELMER will run group1 vs group2. That means, if direction is hyper, get probes hypermethylated in group 1 compared to group 2. |
+| group2 | A group from group.col. ELMER will run group1 vs group2. That means, if direction is hyper, get probes hypermethylated in group 1 compared to group 2. |
+| test | Statistical test to be used. Options: t.test (DEFAULT), wilcox.test |
+| sig.dif | A number specifies the smallest DNA methylation difference as a cutoff for selecting significant hypo/hyper-methylated probes. Default is 0.3. |
+| dir.out | A path specify the directory for outputs. Default is is current directory. |
+| save | A logic. When TRUE, two getMethdiff.XX.csv files will be generated (see detail) |
+
+</div>
+</div>
+</div>
+
 ```{r,eval=TRUE, message=FALSE, warning = FALSE, results = "hide"}
 sig.diff <- get.diff.meth(data = mae, 
                           group.col = "definition",
@@ -124,6 +153,10 @@ dir(path = "result", pattern = "getMethdiff")
 ```
 
 ## Identifying putative probe-gene pairs
+
+
+
+![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/elmer_data_final.png)
 
 ```{r, eval = TRUE, message = FALSE, warning = FALSE, results = "hide"}
 nearGenes <- GetNearGenes(data = mae, 
@@ -183,6 +216,8 @@ dir(path = "result", pattern = "motif.enrichment.pdf")
 
 
 ## Identifying regulatory TFs
+
+![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/paper_get_pairs.png)
 
 ```{r,eval=TRUE, message=FALSE, warning = FALSE, results = "hide"}
 ## identify regulatory TF for the enriched motifs
