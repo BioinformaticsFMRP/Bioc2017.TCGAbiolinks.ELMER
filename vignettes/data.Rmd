@@ -26,12 +26,12 @@ devtools::load_all(".")
 
 # Introduction
 
-In this section we will learn to search and download DNA methylation (epigenetic) and 
+In this section, we will learn to search and download DNA methylation (epigenetic) and 
 gene expression (transcription) data from the newly created 
 [NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/) 
 and prepare them into a Summarized Experiment object. 
 
-The figure below hihglights the workflow part which will be covered in this section.
+The figure below highlights the workflow part which will be covered in this section.
 ![Part of the workflow covered in this section](figures/workflow_TGCAbiolinks.png)
 
 
@@ -76,14 +76,14 @@ rowRanges(exp)
 This subsection describes how to download DNA methylation using the Bioconductor 
 package [TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) [@TCGAbiolinks]
 from [NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/).
-In this example we will download DNA methylation data (Infinium HumanMethylation450 platform)
+In this example, we will download DNA methylation data (Infinium HumanMethylation450 platform)
 for two TCGA-LUSC (TCGA Lung Squamous Cell Carcinoma) samples.
 GDCquery function will search in the GDC database for the information required to 
 download the data, this information is used by the `GDCdownload` function 
 which will request the files to GDC, those files will be compacted into a 76 MB tar.gz file.
 After the download is completed  `GDCdownload` will uncompress the tar.gz file and move 
 its files to a folder; the default is GDCData/(Project)/(source)/(data.category)/(data.type)), 
-in our example it will be `GDCdata/TCGA-LUSC/harmonized/DNA_Methylation/Methylation_Beta_Value/`
+in our example, it will be `GDCdata/TCGA-LUSC/harmonized/DNA_Methylation/Methylation_Beta_Value/`
 
 ![Data saved after GDCdownload is executed](figures/folder_structure.png)
 

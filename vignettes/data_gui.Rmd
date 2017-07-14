@@ -26,85 +26,163 @@ devtools::load_all(".")
 
 # Introduction
 
-In this section we will learn to search and download DNA methylation (epigenetic) and 
-gene expression (transcription) data from the newly created 
-[NCI Genomic Data Commons (GDC) portal](https://portal.gdc.cancer.gov/) 
-and prepare them into a Summarized Experiment object. 
+In this section, we will download the same data using TCGAbiolinks,
+but instead of doing it programmatically we will use TCGAbiolinksGUI.
 
-The figure below hihglights the workflow part which will be covered in this section.
-![Part of the workflow covered in this section](figures/workflow_TGCAbiolinks.png)
-
-
-
-# Downloading data 
-
-## Loading GUI
-
-First we will launch the GUI for TCGAbiolinks.
+First we will launch the TCGAbiolinksGUI.
 ```{r gui, eval=FALSE, message=FALSE,warning=F}
 library(TCGAbiolinksGUI)
 TCGAbiolinksGUI()
 ```
 
+
+# Downloading data 
+
 ## Gene expression
 
+<div class="panel panel-info">
+<div class="panel-body">
 After launching the GUI select the `GDC Data/Get GDC data/Molecular data`.
+</div>
+</div>
+
 ![](figures/gui_menu.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 Fill the search fields with the same information below and click on `Visualize Data`.
 If you select `Filter  using clinical data` under the clinical filter we will also plot
 the clinical information.
+</div>
+</div>
+
 ![](figures/gui_exp_query.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 A plot with the summary of the data will be shown. 
+</div>
+</div>
+
 ![](figures/gui_exp_plots.png)
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
+
 Also, if you want more details you 
 can also open the `GDC search results: Results` section.
+</div>
+</div>
 
 ![](figures/gui_exp_query_results.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
+
 After the query is completed, you will be able to download the data and convert it to
 an R object in the `Download & Prepare` section.
+</div>
+</div>
+
 ![](figures/gui_exp_prepare.png)
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 If successful it will give you a message where the data was saved.
+</div>
+</div>
+
 ![](figures/gui_exp_prepare_completed.png)
 ## Visualizing the Summarized Experiment
 
-The integrative data container [SummarizedExperiment object](http://www.nature.com/nmeth/journal/v12/n2/fig_tab/nmeth.3252_F2.html) [@SummarizedExperiment,@huber2015orchestrating]
-contains 3 matrices, one with sample metadata, one with features metadata
-and one with the assay data.
-
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 To visualize the SummarizedExperiment object select  `GDC Data/Manage SummarizedExperiment`:
+</div>
+</div>
 ![](figures/gui_visualize_se.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
+
 And click on `Select Summarized Experiment file`.
+</div>
+</div>
 ![](figures/gui_se_select.png)
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
+
 Select the file downloaded from GDC.
+</div>
+</div>
 ![](figures/gui_se_selection.png)
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
+
 You can access sample metadata
+</div>
+</div>
 ![](figures/gui_se_sampleinfo.png)
+
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 the assay data 
+</div>
+</div>
 ![Accessing  assay information from SummarizedExperiment](figures/gui_exp_se_assay.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 or the features metadata
+</div>
+</div>
 ![Accessing features information from SummarizedExperiment ](figures/gui_exp_se_features.png)
 
 
 ## DNA methylation
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 Again, fill the search fields with the same information below and click on `Visualize Data`.
 If you select `Filter using clinical data` under the clinical filter we will also plot
 the clinical information.
-
+</div>
+</div>
 ![](figures/gui_dnamet_query.png)
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
+
 A plot with the summary of the data will be shown.
+</div>
+</div>
 ![](figures/gui_dnamet_plots.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 After the query is completed, you will be able to download the data and convert it to
 an R object in the `Download & Prepare` section.
+</div>
+</div>
 ![](figures/gui_dnamet_prepare.png)
 
+<br />
+<div class="panel panel-info">
+<div class="panel-body">
 If successful it will give you a message where the data was saved.
+</div>
+</div>
 ![](figures/gui_dnamet_prepare_completed.png)
 
 # Session Info

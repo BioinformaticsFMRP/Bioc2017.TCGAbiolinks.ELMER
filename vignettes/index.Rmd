@@ -13,6 +13,7 @@ output:
     toc_float: true
     toc_depth: 2
     css: style.css
+  
 bibliography: bibliography.bib    
 vignette: >
   %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
@@ -43,7 +44,7 @@ information, has been shown to improve the prognostic and predictive accuracy
 for cancer phenotypes if compared to clinical features alone. This workshop will 
 focus on helping researchers to perform an integrative analysis of both molecular 
 and clinical data available through the TCGA by harnessing open source packages 
-within the bioconductor platform.
+within the Bioconductor platform.
 
 Participants will learn to search and download DNA methylation (epigenetic) and 
 gene expression (transcription) data from the newly created 
@@ -54,7 +55,7 @@ We will introduce the workflow using our recently developed
 and if time permitted, we will highlight the Graphics User Interface version 
 ([TCGAbiolinksGUI](http://bioconductor.org/packages/TCGAbiolinksGUI/)) [@Silva147496]. 
 
-Another bioconductor package will also be introduced called 
+A second Bioconductor package will also be introduced called 
 [ELMER](http://bioconductor.org/packages/ELMER/)  [@yao2015inferring,@elmer2]  which allows 
 one to identify DNA methylation changes in distal regulatory regions and correlate 
 these signatures with expression of nearby genes to identify transcriptional 

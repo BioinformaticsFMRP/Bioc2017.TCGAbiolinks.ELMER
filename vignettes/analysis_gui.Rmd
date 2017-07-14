@@ -26,28 +26,10 @@ devtools::load_all(".")
 
 # Introduction
 
-Another Bioconductor package we will also be introduce is called 
-[ELMER](http://bioconductor.org/packages/ELMER/) [@yao2015inferring,@elmer2] which allows 
-one to identify DNA methylation changes in distal regulatory regions and correlate 
-these signatures with expression of nearby genes to identify transcriptional 
-targets associated with cancer. For these distal probes correlated with a gene, 
-a transcription factor motif analysis is performed followed by expression 
-analysis of transcription factors to infer upstream regulators.
+In this section, we will perform the same analysis performed using ELMER,
+but instead of doing it programmatically we will use TCGAbiolinksGUI.
 
-We expect that participants of this workshop will understand the integrative 
-analysis performed by using 
-[TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) + 
-[ELMER](http://bioconductor.org/packages/ELMER/), as well as be able to execute 
-it from the data acquisition process to the final interpretation of the results. 
-The workshop assumes users with an intermediate level of familiarity with R, 
-and basic understanding of tumor biology. 
-
-The figure below hihglights the workflow part which will be covered in this section.
-![Part of the workflow covered in this section](figures/workflow_ELMER.png)
-
-## Loading GUI
-
-First we will launch the GUI for TCGAbiolinks.
+First we will launch the TCGAbiolinksGUI.
 ```{r gui, eval=FALSE, message=FALSE,warning=F}
 library(TCGAbiolinksGUI)
 TCGAbiolinksGUI()
@@ -76,7 +58,7 @@ To create the MultiAssayExperiment object go to `Integrative analysis/ELMER/Crea
 <br />
 <div class="panel panel-info">
 <div class="panel-body">
-Select the DNA methylation object downloaded previously.
+Select the DNA methylation object previously downloaded.
 </div>
 </div>
 
@@ -87,7 +69,7 @@ Select the DNA methylation object downloaded previously.
 <br />
 <div class="panel panel-info">
 <div class="panel-body">
-Select the gene expression object downloaded previously.
+Select the gene expression object previously downloaded.
 </div>
 </div>
 

@@ -42,7 +42,7 @@ it from the data acquisition process to the final interpretation of the results.
 The workshop assumes users with an intermediate level of familiarity with R, 
 and basic understanding of tumor biology. 
 
-The figure below hihglights the workflow part which will be covered in this section.
+The figure below highlights the workflow part which will be covered in this section.
 ![Part of the workflow covered in this section](figures/workflow_ELMER.png)
 
 ## Loading required libraries
@@ -60,7 +60,7 @@ A Multi Assay Experiment object from the `r BiocStyle::Biocpkg("MultiAssayExperi
 package is the input for multiple main functions of `r BiocStyle::Biocpkg("ELMER")`. 
 To create it you can use the `createMAE` function.
 
-But instead of using the data downloaded previously we will use one with more samples provided
+But instead of using the data previously downloaded, we will use one with more samples provided
 in this package.
 ```{r data, eval=TRUE, message=FALSE, warning = FALSE}
 library(MultiAssayExperiment)
@@ -68,7 +68,7 @@ lusc.exp
 lusc.met
 ```
 
-Also we will need to filter the probes in the MAE to select only distal probes.
+Also, we will need to filter the probes in the MAE to select only distal probes.
 ```{r distal probes, eval=TRUE, message=FALSE, warning = FALSE}
 distal.probes <- get.feature.probe(genome = "hg38", met.platform = "450K")
 ```
