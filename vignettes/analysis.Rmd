@@ -8,7 +8,7 @@ output:
     number_sections: no
     theme: flatly
     highlight: tango
-    mathjax: null
+    mathjax: default
     toc: true
     toc_float: true
     toc_depth: 2
