@@ -1,6 +1,6 @@
 ---
 title: "Integrative analysis workshop with TCGAbiolinks and ELMER"
-author: "Tiago Chedraoui Silva, Simon Coetzee, Ben Berman, Houtan Noushmehr"
+author: "Tiago Chedraoui Silva, Simon Coetzee, Dennis Hazelett, Ben Berman, Houtan Noushmehr"
 date: "`r Sys.Date()`"
 output: 
   html_document:

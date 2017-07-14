@@ -453,8 +453,8 @@ div.tocify {
 <p>The Cancer Genome Atlas (TCGA) <span class="citation">(Weinstein et al. 2013)</span>, The Encyclopedia of DNA Elements (ENCODE) <span class="citation">(Consortium and others 2011)</span>, and The NIH Roadmap Epigenomics Mapping Consortium (Roadmap) <span class="citation">(Fingerman et al. 2011; Bernstein et al. 2010)</span> and other organized international consortia have led the explosion of sequencing based biological data and thereby have provided unprecedented access to the largest publicly available genomic, transcriptomic and epigenomic data to date.</p>
 <p>These projects have provided amazing opportunities for researchers to interrogate the epigenome of cultured cancer cell lines, normal and tumor fresh tissues with high genomic resolution. However, the use of such data in analyzes, comprises the arduous task of searching, downloading and processing them in a reproducible manner. Furthermore, most bioinformatics tools are designed for specific data types (e.g. expression, epigenetics, genomics) which provides only a partial view of the biological process that takes place.</p>
 <p>Performing an integrated analysis of molecular datasets along with clinical information, has been shown to improve the prognostic and predictive accuracy for cancer phenotypes if compared to clinical features alone. This workshop will focus on helping researchers to perform an integrative analysis of both molecular and clinical data available through the TCGA by harnessing open source packages within the bioconductor platform.</p>
-<p>Participants will learn to search and download DNA methylation (epigenetic) and gene expression (transcription) data from the newly created <a href="https://portal.gdc.cancer.gov/">NCI Genomic Data Commons (GDC) portal</a> and prepare them into a Summarized Experiment object. We will introduce the workflow using our recently developed <a href="http://bioconductor.org/packages/TCGAbiolinks/">TCGAbiolinks</a> <span class="citation">(Colaprico et al. 2016)</span> and if time permitted, we will highlight the Graphics User Interface version (<a href="http://bioconductor.org/packages/TCGAbiolinksGUI/">TCGAbiolinksGUI</a>).</p>
-<p>Another bioconductor package will also be introduced called <a href="http://bioconductor.org/packages/ELMER/">ELMER</a> which allows one to identify DNA methylation changes in distal regulatory regions and correlate these signatures with expression of nearby genes to identify transcriptional targets associated with cancer. For these distal probes correlated with a gene, a transcription factor motif analysis is performed followed by expression analysis of transcription factors to infer upstream regulators.</p>
+<p>Participants will learn to search and download DNA methylation (epigenetic) and gene expression (transcription) data from the newly created <a href="https://portal.gdc.cancer.gov/">NCI Genomic Data Commons (GDC) portal</a> and prepare them into a Summarized Experiment object. We will introduce the workflow using our recently developed <a href="http://bioconductor.org/packages/TCGAbiolinks/">TCGAbiolinks</a> <span class="citation">(Colaprico et al. 2016)</span> and if time permitted, we will highlight the Graphics User Interface version (<a href="http://bioconductor.org/packages/TCGAbiolinksGUI/">TCGAbiolinksGUI</a>) <span class="citation">(Silva et al. 2017)</span>.</p>
+<p>Another bioconductor package will also be introduced called <a href="http://bioconductor.org/packages/ELMER/">ELMER</a> <span class="citation">(L. Yao et al. 2015,<span class="citation">Chedraoui Silva et al. (2017)</span>)</span> which allows one to identify DNA methylation changes in distal regulatory regions and correlate these signatures with expression of nearby genes to identify transcriptional targets associated with cancer. For these distal probes correlated with a gene, a transcription factor motif analysis is performed followed by expression analysis of transcription factors to infer upstream regulators.</p>
 <p>We expect that participants of this workshop will understand the integrative analysis performed by using <a href="http://bioconductor.org/packages/TCGAbiolinks/">TCGAbiolinks</a> + <a href="http://bioconductor.org/packages/ELMER/">ELMER</a>, as well as be able to execute it from the data acquisition process to the final interpretation of the results. The workshop assumes users with an intermediate level of familiarity with R, and basic understanding of tumor biology.</p>
 <div id="agenda" class="section level2">
 <h2>Agenda</h2>
@@ -624,6 +624,9 @@ div.tocify {
 <div id="ref-Bernstein">
 <p>Bernstein, B. E., J. A. Stamatoyannopoulos, J. F. Costello, B. Ren, A. Milosavljevic, A. Meissner, M. Kellis, et al. 2010. “The NIH Roadmap Epigenomics Mapping Consortium.” <em>Nat. Biotechnol.</em> 28 (10): 1045–8.</p>
 </div>
+<div id="ref-elmer2">
+<p>Chedraoui Silva, Tiago, Simon G. Coetzee, Lijing Yao, Dennis J. Hazelett, Houtan Noushmehr, and Benjamin P. Berman. 2017. “Enhancer Linking by Methylation/Expression Relationships with the R Package Elmer Version 2.” <em>bioRxiv</em>. Cold Spring Harbor Labs Journals. doi:<a href="https://doi.org/10.1101/148726">10.1101/148726</a>.</p>
+</div>
 <div id="ref-TCGAbiolinks">
 <p>Colaprico, Antonio, Tiago C. Silva, Catharina Olsen, Luciano Garofano, Claudia Cava, Davide Garolini, Thais S. Sabedot, et al. 2016. “TCGAbiolinks: An R/Bioconductor Package for Integrative Analysis of Tcga Data.” <em>Nucleic Acids Research</em> 44 (8): e71. doi:<a href="https://doi.org/10.1093/nar/gkv1507">10.1093/nar/gkv1507</a>.</p>
 </div>
@@ -633,8 +636,14 @@ div.tocify {
 <div id="ref-Fingerman">
 <p>Fingerman, I. M., L. McDaniel, X. Zhang, W. Ratzat, T. Hassan, Z. Jiang, R. F. Cohen, and G. D. Schuler. 2011. “NCBI Epigenomics: a new public resource for exploring epigenomic data sets.” <em>Nucleic Acids Res.</em> 39 (Database issue): D908–912.</p>
 </div>
+<div id="ref-Silva147496">
+<p>Silva, Tiago C., Antonio Colaprico, Catharina Olsen, Gianluca Bontempi, Michele Ceccarelli, Benjamin P. Berman, and Houtan Noushmehr. 2017. “TCGAbiolinksGUI: A Graphical User Interface to Analyze Cancer Molecular and Clinical Data.” <em>bioRxiv</em>. Cold Spring Harbor Labs Journals. doi:<a href="https://doi.org/10.1101/147496">10.1101/147496</a>.</p>
+</div>
 <div id="ref-weinstein2013cancer">
 <p>Weinstein, John N, Eric A Collisson, Gordon B Mills, Kenna R Mills Shaw, Brad A Ozenberger, Kyle Ellrott, Ilya Shmulevich, et al. 2013. “The Cancer Genome Atlas Pan-Cancer Analysis Project.” <em>Nature Genetics</em> 45 (10). Nature Publishing Group: 1113–20.</p>
+</div>
+<div id="ref-yao2015inferring">
+<p>Yao, L, H Shen, PW Laird, PJ Farnham, and BP Berman. 2015. “Inferring Regulatory Element Landscapes and Transcription Factor Networks from Cancer Methylomes.” <em>Genome Biology</em> 16 (1): 105–5.</p>
 </div>
 </div>
 </div>

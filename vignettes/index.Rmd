@@ -52,10 +52,10 @@ and prepare them into a Summarized Experiment object.
 We will introduce the workflow using our recently developed 
 [TCGAbiolinks](http://bioconductor.org/packages/TCGAbiolinks/) [@TCGAbiolinks]
 and if time permitted, we will highlight the Graphics User Interface version 
-([TCGAbiolinksGUI](http://bioconductor.org/packages/TCGAbiolinksGUI/)). 
+([TCGAbiolinksGUI](http://bioconductor.org/packages/TCGAbiolinksGUI/)) [@Silva147496]. 
 
 Another bioconductor package will also be introduced called 
-[ELMER](http://bioconductor.org/packages/ELMER/) which allows 
+[ELMER](http://bioconductor.org/packages/ELMER/)  [@yao2015inferring,@elmer2]  which allows 
 one to identify DNA methylation changes in distal regulatory regions and correlate 
 these signatures with expression of nearby genes to identify transcriptional 
 targets associated with cancer. For these distal probes correlated with a gene, 
