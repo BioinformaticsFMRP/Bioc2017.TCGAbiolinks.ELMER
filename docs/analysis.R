@@ -124,4 +124,5 @@ dir(path = "result/TFrankPlot_family/", pattern = "pdf")
 
 ## ----sessioninfo, eval=TRUE----------------------------------------------
 sessionInfo()
+devtools::session_info()
 

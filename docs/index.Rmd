@@ -70,6 +70,14 @@ it from the data acquisition process to the final interpretation of the results.
 The workshop assumes users with an intermediate level of familiarity with R, 
 and basic understanding of tumor biology. 
 
+## Agenda
+
+|  Section                     | Duration |
+|------------------------------|----------|
+| Introduction                 | 10 min   |
+| TCGAbiolinks/TCGAbiolinksGUI | 20 min   |
+| ELMER  [Slides](https://github.com/BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER/blob/master/vignettes/elmer.pdf)                      | 1 hour   |
+
 
 ## Installation instructions
 
