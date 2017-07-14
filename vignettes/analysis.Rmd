@@ -102,8 +102,8 @@ This step is to identify DNA methylation changes at distal enhancer probes which
 carried out by function `get.diff.meth`.
 
 For each distal probe, the function first rank samples from group 1 and group 2 samples by their DNA methylation beta values. 
-To identify hypomethylated probes, the function compared the lower control quintile (20% of control samples with the lowest methylation) 
-to the lower experiment quintile (20% of experiment samples with the lowest methylation), using an unpaired one-tailed t-test.
+To identify hypomethylated probes, the function compared the lower control quintile (20\% of control samples with the lowest methylation) 
+to the lower experiment quintile (20\% of experiment samples with the lowest methylation), using an unpaired one-tailed t-test.
 
 ![Source: Yao, Lijing, et al. "Inferring regulatory element landscapes and transcription factor networks from cancer methylomes." Genome biology 16.1 (2015): 105.](figures/paper_diff_meth.png)
 
@@ -159,9 +159,9 @@ methylation of the probe and expression of the gene.
 Thus, exactly 20 statistical 
 tests were performed for each probe, as follows. For each probe-gene pair, 
 the samples (all experiment samples and control samples) were divided into two 
-groups: the M group, which consisted of the upper methylation quintile (the 20%
+groups: the M group, which consisted of the upper methylation quintile (the 20\%
 of samples with the highest methylation at the enhancer probe), and the U group, 
-which consisted of the lowest methylation quintile (the 20% of samples with the 
+which consisted of the lowest methylation quintile (the 20\% of samples with the 
 lowest methylation.)
 For each probe-gene pair tested, the raw p-value `Pr` was corrected for multiple 
 hypothesis using a permutation approach.
@@ -188,7 +188,7 @@ hypothesis using a permutation approach.
 | group2 | A group from group.col. |
 | filter.probes     | Should filter probes by selecting only probes that have at least a certain number of samples below and above a certain cut-off. See `preAssociationProbeFiltering` function.                                                                                                                                                                                          |
 | filter.portion    | A number specify the cut point to define binary methlation level for probe loci. Default is 0.3. When beta value is above 0.3, the probe is methylated and vice versa. For one probe, the percentage of methylated and unmethylated samples should be above filter.percentage value. Only used if filter.probes is TRUE. See preAssociationProbeFiltering function. |
-| filter.percentage | Minimum percentage of samples to be considered in methylated and unmethylated for the filter.portion option. Default 5%. Only used if filter.probes is TRUE. See preAssociationProbeFiltering function.                                                                                                                                                             |
+| filter.percentage | Minimum percentage of samples to be considered in methylated and unmethylated for the filter.portion option. Default 5%. Only used if filter.probes is TRUE. See preAssociationProbeFiltering function.   |
 </div>
 </div>
 </div>
@@ -303,8 +303,8 @@ compare the average DNA methylation at all distal enhancer probes within $\pm250
 of a motif occurrence, to the expression of human TFs. A statistical test 
 was performed for each motif-TF pair, as follows. The samples (all groups samples) 
 were divided into two groups: the M group, which consisted 
-of the 20% of samples with the highest average methylation at all motif-adjacent 
-probes, and the U group, which consisted of the 20% of samples with the lowest 
+of the 20\% of samples with the highest average methylation at all motif-adjacent 
+probes, and the U group, which consisted of the 20\% of samples with the lowest 
 methylation. For each candidate motif-TF pair, the Mann-Whitney U test was used to test 
 the null hypothesis that overall gene expression in group M was greater or equal 
 than that in group U.

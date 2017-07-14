@@ -29,19 +29,19 @@ navbar:
         - text: "Github ELMER/TCGAbiolinks"
           href: https://github.com/BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER
         - text: "---------"
-        - text: "TCGAbiolinks"
+        - text: "TCGAbiolinks package"
         - text: "Github"
           href: https://github.com/BioinformaticsFMRP/TCGAbiolinks
         - text: "Bioconductor"
           href: http://bioconductor.org/packages/devel/bioc/html/TCGAbiolinks.html
         - text: "---------"
-        - text: "ELMER"
+        - text: "ELMER package"
         - text: "Github"
           href: https://github.com/tiagochst/ELMER
         - text: "Bioconductor"
           href: http://bioconductor.org/packages/devel/bioc/html/ELMER.html
         - text: "---------"
-        - text: "ELMER.data"
+        - text: "ELMER.data package"
         - text: "Github"
           href: https://github.com/tiagochst/ELMER
         - text: "Bioconductor"
