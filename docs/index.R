@@ -6,8 +6,8 @@
 #           dependencies = TRUE, build_vignettes = TRUE)
 
 ## ----vignette, eval=FALSE------------------------------------------------
-#  library("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER")
-#  bioc2017()
+#  library("Bioc2017.TCGAbiolinks.ELMER")
+#  openVignette("Bioc2017.TCGAbiolinks.ELMER")
 
 ## ----sessioninfo, eval=TRUE----------------------------------------------
 sessionInfo()

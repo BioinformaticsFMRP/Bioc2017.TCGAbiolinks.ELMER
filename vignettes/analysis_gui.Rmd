@@ -1,5 +1,5 @@
 ---
-title: "Integrative analysis workshop with TCGAbiolinks and ELMER"
+title: "Integrative analysis workshop with TCGAbiolinks and ELMER - Analysis GUI"
 author: "Tiago Chedraoui Silva, Simon Coetzee, Dennis Hazelett, Ben Berman, Houtan Noushmehr"
 date: "`r Sys.Date()`"
 output: 
@@ -15,7 +15,7 @@ output:
     css: style.css
 bibliography: bibliography.bib    
 vignette: >
-  %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER}
+  %\VignetteIndexEntry{Integrative analysis workshop with TCGAbiolinks and ELMER - Analysis GUI}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -27,7 +27,7 @@ devtools::load_all(".")
 # Introduction
 
 In this section, we will perform the same analysis performed using ELMER,
-but instead of doing it programmatically we will use TCGAbiolinksGUI.
+but instead of doing it programmatically we will use TCGAbiolinksGUI [@Silva147496].
 
 First we will launch the TCGAbiolinksGUI.
 ```{r gui, eval=FALSE, message=FALSE,warning=F}

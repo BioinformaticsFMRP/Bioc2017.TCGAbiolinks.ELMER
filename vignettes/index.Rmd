@@ -96,8 +96,8 @@ biocLite("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER",
 The vignette can be laucnhed with the following command:
 
 ```{r vignette, eval=FALSE}
-library("BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER")
-bioc2017()
+library("Bioc2017.TCGAbiolinks.ELMER")
+openVignette("Bioc2017.TCGAbiolinks.ELMER")
 ```
 
 # Session Info
