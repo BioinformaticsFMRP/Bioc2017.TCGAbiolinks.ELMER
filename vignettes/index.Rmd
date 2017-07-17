@@ -100,6 +100,10 @@ library("Bioc2017.TCGAbiolinks.ELMER")
 Biobase::openVignette("Bioc2017.TCGAbiolinks.ELMER")
 ```
 
+## Workshop code
+
+The complete R code for the workshop can be found in this [gist](https://gist.github.com/tiagochst/e324bead84c4accef753f51bc7e4dbd1)
+
 # Session Info
 
 ```{r sessioninfo, eval=TRUE}
