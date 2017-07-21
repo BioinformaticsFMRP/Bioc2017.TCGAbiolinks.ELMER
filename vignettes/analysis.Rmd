@@ -350,7 +350,6 @@ dir(path = "result/TFrankPlot_family/", pattern = "pdf")
 
 ```{r sessioninfo, eval=TRUE}
 sessionInfo()
-devtools::session_info()
 ```
 
 # Bibliography
