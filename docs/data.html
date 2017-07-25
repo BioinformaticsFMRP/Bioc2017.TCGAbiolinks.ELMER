@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tiago Chedraoui Silva, Simon Coetzee, Dennis Hazelett, Ben Berman, Houtan Noushmehr" />
 
-<meta name="date" content="2017-07-21" />
+<meta name="date" content="2017-07-24" />
 
 <title>Integrative analysis workshop with TCGAbiolinks and ELMER - Get DATA</title>
 
@@ -448,7 +448,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Integrative analysis workshop with TCGAbiolinks and ELMER - Get DATA</h1>
 <h4 class="author"><em>Tiago Chedraoui Silva, Simon Coetzee, Dennis Hazelett, Ben Berman, Houtan Noushmehr</em></h4>
-<h4 class="date"><em>2017-07-21</em></h4>
+<h4 class="date"><em>2017-07-24</em></h4>
 
 </div>
 
@@ -493,11 +493,11 @@ exp &lt;-<span class="st"> </span><span class="kw">GDCprepare</span>(<span class
 ## colData names(69): patient barcode ...
 ##   subtype_Homozygous.Deletions subtype_Expression.Subtype</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colData</span>(exp) <span class="op">%&gt;%</span><span class="st"> </span>as.data.frame <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span>(<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">scrollX =</span> <span class="ot">TRUE</span>), <span class="dt">rownames =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div id="htmlwidget-1466b304a317bdcf1e15" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1466b304a317bdcf1e15">{"x":{"filter":"none","data":[["TCGA-34-5231-01A-21R-1820-07","TCGA-77-7138-01A-41R-2045-07"],["TCGA-34-5231","TCGA-77-7138"],["TCGA-34-5231-01A-21R-1820-07","TCGA-77-7138-01A-41R-2045-07"],["TCGA-34-5231-01A","TCGA-77-7138-01A"],["TP","TP"],["Primary solid Tumor","Primary solid Tumor"],["not reported","not reported"],["not reported","not reported"],["2017-03-04T16:44:35.784223-06:00","2017-03-04T16:44:35.784223-06:00"],["c34.1","c34.3"],["stage ia","stage ib"],[26525,24594],["dead","dead"],["8070/3","8070/3"],[1984,340],[null,null],[null,null],["live","live"],[null,null],["82597651-b143-511a-8c9c-bb89710353f7","618232ba-50db-538c-9ffd-a3fa1129608b"],["not reported","not reported"],[{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-34-5231_treatment"],"treatment_id":["ce29ac3a-fe0f-5795-af26-2dc6e00c2bdf"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]},{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-77-7138_treatment"],"treatment_id":["1ce0abb0-1091-553e-bf8d-180238b43807"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]}],["c34.1","c34.3"],[-26525,-24594],["not reported","not reported"],["not reported","not reported"],["c34.1","c34.3"],[1528,null],[2.73972602739726,1.0958904109589],[null,null],["2017-03-04T16:37:25.850486-06:00","2017-03-04T16:37:25.850486-06:00"],[null,null],[null,null],[null,null],[null,20],[null,null],["live","live"],["ee601b74-829d-503f-800d-70e9cedc37a1","5f17c5c3-c897-5433-b700-939bca677108"],[null,null],["2017-03-04T16:37:28.862150-06:00","2017-03-04T16:37:28.862150-06:00"],[null,null],["male","male"],[1934,1932],["live","live"],["white","not reported"],["68900fc6-7df8-56d3-9fd8-710d7f8dae99","68f54ed5-e48f-57ff-9c96-3a435d210e73"],["not hispanic or latino","not reported"],[null,1999],["TCGA-34-5231","TCGA-77-7138"],[null,null],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],[true,true],["legacy","legacy"],["Lung","Lung"],["TCGA-LUSC","TCGA-LUSC"],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],["TCGA-34-5231",null],["MALE",null],["72",null],["T1",null],["N0",null],["M0",null],["N/A",null],["50",null],[546,null],["15,14",null],["NOTCH2 p.A7P; CDKN2A p.A118P; BRAF p.A621_splice",null],["SOX2, PIK3CA, FGFR1, CCND1, AKT3",null],["",null],["primitive",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>patient<\/th>\n      <th>barcode<\/th>\n      <th>sample<\/th>\n      <th>shortLetterCode<\/th>\n      <th>definition<\/th>\n      <th>classification_of_tumor<\/th>\n      <th>last_known_disease_status<\/th>\n      <th>updated_datetime.x<\/th>\n      <th>primary_diagnosis<\/th>\n      <th>tumor_stage<\/th>\n      <th>age_at_diagnosis<\/th>\n      <th>vital_status<\/th>\n      <th>morphology<\/th>\n      <th>days_to_death<\/th>\n      <th>days_to_last_known_disease_status<\/th>\n      <th>created_datetime.x<\/th>\n      <th>state.x<\/th>\n      <th>days_to_recurrence<\/th>\n      <th>diagnosis_id<\/th>\n      <th>tumor_grade<\/th>\n      <th>treatments<\/th>\n      <th>tissue_or_organ_of_origin<\/th>\n      <th>days_to_birth<\/th>\n      <th>progression_or_recurrence<\/th>\n      <th>prior_malignancy<\/th>\n      <th>site_of_resection_or_biopsy<\/th>\n      <th>days_to_last_follow_up<\/th>\n      <th>cigarettes_per_day<\/th>\n      <th>weight<\/th>\n      <th>updated_datetime.y<\/th>\n      <th>alcohol_history<\/th>\n      <th>alcohol_intensity<\/th>\n      <th>bmi<\/th>\n      <th>years_smoked<\/th>\n      <th>created_datetime.y<\/th>\n      <th>state.y<\/th>\n      <th>exposure_id<\/th>\n      <th>height<\/th>\n      <th>updated_datetime<\/th>\n      <th>created_datetime<\/th>\n      <th>gender<\/th>\n      <th>year_of_birth<\/th>\n      <th>state<\/th>\n      <th>race<\/th>\n      <th>demographic_id<\/th>\n      <th>ethnicity<\/th>\n      <th>year_of_death<\/th>\n      <th>bcr_patient_barcode<\/th>\n      <th>dbgap_accession_number<\/th>\n      <th>disease_type<\/th>\n      <th>released<\/th>\n      <th>state.1<\/th>\n      <th>primary_site<\/th>\n      <th>project_id<\/th>\n      <th>name<\/th>\n      <th>subtype_patient<\/th>\n      <th>subtype_Sex<\/th>\n      <th>subtype_Age.at.diagnosis<\/th>\n      <th>subtype_T.stage<\/th>\n      <th>subtype_N.stage<\/th>\n      <th>subtype_M.stage<\/th>\n      <th>subtype_Smoking.Status<\/th>\n      <th>subtype_Pack.years<\/th>\n      <th>subtype_Nonsilent.Mutatios<\/th>\n      <th>subtype_Nonsilent.Mutatios.per.Mb<\/th>\n      <th>subtype_Selected.Mutation.Summary<\/th>\n      <th>subtype_High.Level.Amplifications<\/th>\n      <th>subtype_Homozygous.Deletions<\/th>\n      <th>subtype_Expression.Subtype<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[11,14,23,27,28,34,42,47,64]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a84403a0f623c433bf49" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a84403a0f623c433bf49">{"x":{"filter":"none","data":[["TCGA-34-5231-01A-21R-1820-07","TCGA-77-7138-01A-41R-2045-07"],["TCGA-34-5231","TCGA-77-7138"],["TCGA-34-5231-01A-21R-1820-07","TCGA-77-7138-01A-41R-2045-07"],["TCGA-34-5231-01A","TCGA-77-7138-01A"],["TP","TP"],["Primary solid Tumor","Primary solid Tumor"],["not reported","not reported"],["not reported","not reported"],["2017-03-04T16:44:35.784223-06:00","2017-03-04T16:44:35.784223-06:00"],["c34.1","c34.3"],["stage ia","stage ib"],[26525,24594],["dead","dead"],["8070/3","8070/3"],[1984,340],[null,null],[null,null],["live","live"],[null,null],["82597651-b143-511a-8c9c-bb89710353f7","618232ba-50db-538c-9ffd-a3fa1129608b"],["not reported","not reported"],[{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-34-5231_treatment"],"treatment_id":["ce29ac3a-fe0f-5795-af26-2dc6e00c2bdf"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]},{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-77-7138_treatment"],"treatment_id":["1ce0abb0-1091-553e-bf8d-180238b43807"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]}],["c34.1","c34.3"],[-26525,-24594],["not reported","not reported"],["not reported","not reported"],["c34.1","c34.3"],[1528,null],[2.73972602739726,1.0958904109589],[null,null],["2017-03-04T16:37:25.850486-06:00","2017-03-04T16:37:25.850486-06:00"],[null,null],[null,null],[null,null],[null,20],[null,null],["live","live"],["ee601b74-829d-503f-800d-70e9cedc37a1","5f17c5c3-c897-5433-b700-939bca677108"],[null,null],["2017-03-04T16:37:28.862150-06:00","2017-03-04T16:37:28.862150-06:00"],[null,null],["male","male"],[1934,1932],["live","live"],["white","not reported"],["68900fc6-7df8-56d3-9fd8-710d7f8dae99","68f54ed5-e48f-57ff-9c96-3a435d210e73"],["not hispanic or latino","not reported"],[null,1999],["TCGA-34-5231","TCGA-77-7138"],[null,null],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],[true,true],["legacy","legacy"],["Lung","Lung"],["TCGA-LUSC","TCGA-LUSC"],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],["TCGA-34-5231",null],["MALE",null],["72",null],["T1",null],["N0",null],["M0",null],["N/A",null],["50",null],[546,null],["15,14",null],["NOTCH2 p.A7P; CDKN2A p.A118P; BRAF p.A621_splice",null],["SOX2, PIK3CA, FGFR1, CCND1, AKT3",null],["",null],["primitive",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>patient<\/th>\n      <th>barcode<\/th>\n      <th>sample<\/th>\n      <th>shortLetterCode<\/th>\n      <th>definition<\/th>\n      <th>classification_of_tumor<\/th>\n      <th>last_known_disease_status<\/th>\n      <th>updated_datetime.x<\/th>\n      <th>primary_diagnosis<\/th>\n      <th>tumor_stage<\/th>\n      <th>age_at_diagnosis<\/th>\n      <th>vital_status<\/th>\n      <th>morphology<\/th>\n      <th>days_to_death<\/th>\n      <th>days_to_last_known_disease_status<\/th>\n      <th>created_datetime.x<\/th>\n      <th>state.x<\/th>\n      <th>days_to_recurrence<\/th>\n      <th>diagnosis_id<\/th>\n      <th>tumor_grade<\/th>\n      <th>treatments<\/th>\n      <th>tissue_or_organ_of_origin<\/th>\n      <th>days_to_birth<\/th>\n      <th>progression_or_recurrence<\/th>\n      <th>prior_malignancy<\/th>\n      <th>site_of_resection_or_biopsy<\/th>\n      <th>days_to_last_follow_up<\/th>\n      <th>cigarettes_per_day<\/th>\n      <th>weight<\/th>\n      <th>updated_datetime.y<\/th>\n      <th>alcohol_history<\/th>\n      <th>alcohol_intensity<\/th>\n      <th>bmi<\/th>\n      <th>years_smoked<\/th>\n      <th>created_datetime.y<\/th>\n      <th>state.y<\/th>\n      <th>exposure_id<\/th>\n      <th>height<\/th>\n      <th>updated_datetime<\/th>\n      <th>created_datetime<\/th>\n      <th>gender<\/th>\n      <th>year_of_birth<\/th>\n      <th>state<\/th>\n      <th>race<\/th>\n      <th>demographic_id<\/th>\n      <th>ethnicity<\/th>\n      <th>year_of_death<\/th>\n      <th>bcr_patient_barcode<\/th>\n      <th>dbgap_accession_number<\/th>\n      <th>disease_type<\/th>\n      <th>released<\/th>\n      <th>state.1<\/th>\n      <th>primary_site<\/th>\n      <th>project_id<\/th>\n      <th>name<\/th>\n      <th>subtype_patient<\/th>\n      <th>subtype_Sex<\/th>\n      <th>subtype_Age.at.diagnosis<\/th>\n      <th>subtype_T.stage<\/th>\n      <th>subtype_N.stage<\/th>\n      <th>subtype_M.stage<\/th>\n      <th>subtype_Smoking.Status<\/th>\n      <th>subtype_Pack.years<\/th>\n      <th>subtype_Nonsilent.Mutatios<\/th>\n      <th>subtype_Nonsilent.Mutatios.per.Mb<\/th>\n      <th>subtype_Selected.Mutation.Summary<\/th>\n      <th>subtype_High.Level.Amplifications<\/th>\n      <th>subtype_Homozygous.Deletions<\/th>\n      <th>subtype_Expression.Subtype<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[11,14,23,27,28,34,42,47,64]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">assay</span>(exp)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span> (<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">scrollX =</span> <span class="ot">TRUE</span>), <span class="dt">rownames =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div id="htmlwidget-974314ad6fc93e0d36dc" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-974314ad6fc93e0d36dc">{"x":{"filter":"none","data":[["ENSG00000000003","ENSG00000000005","ENSG00000000419","ENSG00000000457","ENSG00000000460"],[325223.350028,139.264128346,707569.075758,65671.6456806,65908.0849004],[433110.286517,0,1428433.70575,46532.8101329,55409.522772]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>TCGA-34-5231-01A-21R-1820-07<\/th>\n      <th>TCGA-77-7138-01A-41R-2045-07<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-da77076bd85f0ef2ab73" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-da77076bd85f0ef2ab73">{"x":{"filter":"none","data":[["ENSG00000000003","ENSG00000000005","ENSG00000000419","ENSG00000000457","ENSG00000000460"],[325223.350028,139.264128346,707569.075758,65671.6456806,65908.0849004],[433110.286517,0,1428433.70575,46532.8101329,55409.522772]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>TCGA-34-5231-01A-21R-1820-07<\/th>\n      <th>TCGA-77-7138-01A-41R-2045-07<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowRanges</span>(exp)</code></pre></div>
 <pre><code>## GRanges object with 57035 ranges and 3 metadata columns:
 ##                   seqnames                 ranges strand | ensembl_gene_id
@@ -560,11 +560,11 @@ met &lt;-<span class="st"> </span><span class="kw">GDCprepare</span>(<span class
 ## colData names(69): patient barcode ...
 ##   subtype_Homozygous.Deletions subtype_Expression.Subtype</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colData</span>(met) <span class="op">%&gt;%</span><span class="st"> </span>as.data.frame <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span>(<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">scrollX =</span> <span class="ot">TRUE</span>), <span class="dt">rownames =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div id="htmlwidget-cae44f22840c2bb512d3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cae44f22840c2bb512d3">{"x":{"filter":"none","data":[["TCGA-34-5231-01A-21D-1818-05","TCGA-77-7138-01A-41D-2043-05"],["TCGA-34-5231","TCGA-77-7138"],["TCGA-34-5231-01A-21D-1818-05","TCGA-77-7138-01A-41D-2043-05"],["TCGA-34-5231-01A","TCGA-77-7138-01A"],["TP","TP"],["Primary solid Tumor","Primary solid Tumor"],["not reported","not reported"],["not reported","not reported"],["2017-03-04T16:44:35.784223-06:00","2017-03-04T16:44:35.784223-06:00"],["c34.1","c34.3"],["stage ia","stage ib"],[26525,24594],["dead","dead"],["8070/3","8070/3"],[1984,340],[null,null],[null,null],["live","live"],[null,null],["82597651-b143-511a-8c9c-bb89710353f7","618232ba-50db-538c-9ffd-a3fa1129608b"],["not reported","not reported"],[{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-34-5231_treatment"],"treatment_id":["ce29ac3a-fe0f-5795-af26-2dc6e00c2bdf"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]},{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-77-7138_treatment"],"treatment_id":["1ce0abb0-1091-553e-bf8d-180238b43807"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]}],["c34.1","c34.3"],[-26525,-24594],["not reported","not reported"],["not reported","not reported"],["c34.1","c34.3"],[1528,null],[2.73972602739726,1.0958904109589],[null,null],["2017-03-04T16:37:25.850486-06:00","2017-03-04T16:37:25.850486-06:00"],[null,null],[null,null],[null,null],[null,20],[null,null],["live","live"],["ee601b74-829d-503f-800d-70e9cedc37a1","5f17c5c3-c897-5433-b700-939bca677108"],[null,null],["2017-03-04T16:37:28.862150-06:00","2017-03-04T16:37:28.862150-06:00"],[null,null],["male","male"],[1934,1932],["live","live"],["white","not reported"],["68900fc6-7df8-56d3-9fd8-710d7f8dae99","68f54ed5-e48f-57ff-9c96-3a435d210e73"],["not hispanic or latino","not reported"],[null,1999],["TCGA-34-5231","TCGA-77-7138"],[null,null],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],[true,true],["legacy","legacy"],["Lung","Lung"],["TCGA-LUSC","TCGA-LUSC"],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],["TCGA-34-5231",null],["MALE",null],["72",null],["T1",null],["N0",null],["M0",null],["N/A",null],["50",null],[546,null],["15,14",null],["NOTCH2 p.A7P; CDKN2A p.A118P; BRAF p.A621_splice",null],["SOX2, PIK3CA, FGFR1, CCND1, AKT3",null],["",null],["primitive",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>patient<\/th>\n      <th>barcode<\/th>\n      <th>sample<\/th>\n      <th>shortLetterCode<\/th>\n      <th>definition<\/th>\n      <th>classification_of_tumor<\/th>\n      <th>last_known_disease_status<\/th>\n      <th>updated_datetime.x<\/th>\n      <th>primary_diagnosis<\/th>\n      <th>tumor_stage<\/th>\n      <th>age_at_diagnosis<\/th>\n      <th>vital_status<\/th>\n      <th>morphology<\/th>\n      <th>days_to_death<\/th>\n      <th>days_to_last_known_disease_status<\/th>\n      <th>created_datetime.x<\/th>\n      <th>state.x<\/th>\n      <th>days_to_recurrence<\/th>\n      <th>diagnosis_id<\/th>\n      <th>tumor_grade<\/th>\n      <th>treatments<\/th>\n      <th>tissue_or_organ_of_origin<\/th>\n      <th>days_to_birth<\/th>\n      <th>progression_or_recurrence<\/th>\n      <th>prior_malignancy<\/th>\n      <th>site_of_resection_or_biopsy<\/th>\n      <th>days_to_last_follow_up<\/th>\n      <th>cigarettes_per_day<\/th>\n      <th>weight<\/th>\n      <th>updated_datetime.y<\/th>\n      <th>alcohol_history<\/th>\n      <th>alcohol_intensity<\/th>\n      <th>bmi<\/th>\n      <th>years_smoked<\/th>\n      <th>created_datetime.y<\/th>\n      <th>state.y<\/th>\n      <th>exposure_id<\/th>\n      <th>height<\/th>\n      <th>updated_datetime<\/th>\n      <th>created_datetime<\/th>\n      <th>gender<\/th>\n      <th>year_of_birth<\/th>\n      <th>state<\/th>\n      <th>race<\/th>\n      <th>demographic_id<\/th>\n      <th>ethnicity<\/th>\n      <th>year_of_death<\/th>\n      <th>bcr_patient_barcode<\/th>\n      <th>dbgap_accession_number<\/th>\n      <th>disease_type<\/th>\n      <th>released<\/th>\n      <th>state.1<\/th>\n      <th>primary_site<\/th>\n      <th>project_id<\/th>\n      <th>name<\/th>\n      <th>subtype_patient<\/th>\n      <th>subtype_Sex<\/th>\n      <th>subtype_Age.at.diagnosis<\/th>\n      <th>subtype_T.stage<\/th>\n      <th>subtype_N.stage<\/th>\n      <th>subtype_M.stage<\/th>\n      <th>subtype_Smoking.Status<\/th>\n      <th>subtype_Pack.years<\/th>\n      <th>subtype_Nonsilent.Mutatios<\/th>\n      <th>subtype_Nonsilent.Mutatios.per.Mb<\/th>\n      <th>subtype_Selected.Mutation.Summary<\/th>\n      <th>subtype_High.Level.Amplifications<\/th>\n      <th>subtype_Homozygous.Deletions<\/th>\n      <th>subtype_Expression.Subtype<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[11,14,23,27,28,34,42,47,64]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-09d16f128778ae766eff" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-09d16f128778ae766eff">{"x":{"filter":"none","data":[["TCGA-34-5231-01A-21D-1818-05","TCGA-77-7138-01A-41D-2043-05"],["TCGA-34-5231","TCGA-77-7138"],["TCGA-34-5231-01A-21D-1818-05","TCGA-77-7138-01A-41D-2043-05"],["TCGA-34-5231-01A","TCGA-77-7138-01A"],["TP","TP"],["Primary solid Tumor","Primary solid Tumor"],["not reported","not reported"],["not reported","not reported"],["2017-03-04T16:44:35.784223-06:00","2017-03-04T16:44:35.784223-06:00"],["c34.1","c34.3"],["stage ia","stage ib"],[26525,24594],["dead","dead"],["8070/3","8070/3"],[1984,340],[null,null],[null,null],["live","live"],[null,null],["82597651-b143-511a-8c9c-bb89710353f7","618232ba-50db-538c-9ffd-a3fa1129608b"],["not reported","not reported"],[{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-34-5231_treatment"],"treatment_id":["ce29ac3a-fe0f-5795-af26-2dc6e00c2bdf"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]},{"updated_datetime":["2017-03-04T16:43:59.646072-06:00"],"created_datetime":[null],"therapeutic_agents":[null],"submitter_id":["TCGA-77-7138_treatment"],"treatment_id":["1ce0abb0-1091-553e-bf8d-180238b43807"],"state":["live"],"days_to_treatment":[null],"treatment_intent_type":[null],"treatment_or_therapy":[null]}],["c34.1","c34.3"],[-26525,-24594],["not reported","not reported"],["not reported","not reported"],["c34.1","c34.3"],[1528,null],[2.73972602739726,1.0958904109589],[null,null],["2017-03-04T16:37:25.850486-06:00","2017-03-04T16:37:25.850486-06:00"],[null,null],[null,null],[null,null],[null,20],[null,null],["live","live"],["ee601b74-829d-503f-800d-70e9cedc37a1","5f17c5c3-c897-5433-b700-939bca677108"],[null,null],["2017-03-04T16:37:28.862150-06:00","2017-03-04T16:37:28.862150-06:00"],[null,null],["male","male"],[1934,1932],["live","live"],["white","not reported"],["68900fc6-7df8-56d3-9fd8-710d7f8dae99","68f54ed5-e48f-57ff-9c96-3a435d210e73"],["not hispanic or latino","not reported"],[null,1999],["TCGA-34-5231","TCGA-77-7138"],[null,null],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],[true,true],["legacy","legacy"],["Lung","Lung"],["TCGA-LUSC","TCGA-LUSC"],["Lung Squamous Cell Carcinoma","Lung Squamous Cell Carcinoma"],["TCGA-34-5231",null],["MALE",null],["72",null],["T1",null],["N0",null],["M0",null],["N/A",null],["50",null],[546,null],["15,14",null],["NOTCH2 p.A7P; CDKN2A p.A118P; BRAF p.A621_splice",null],["SOX2, PIK3CA, FGFR1, CCND1, AKT3",null],["",null],["primitive",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>patient<\/th>\n      <th>barcode<\/th>\n      <th>sample<\/th>\n      <th>shortLetterCode<\/th>\n      <th>definition<\/th>\n      <th>classification_of_tumor<\/th>\n      <th>last_known_disease_status<\/th>\n      <th>updated_datetime.x<\/th>\n      <th>primary_diagnosis<\/th>\n      <th>tumor_stage<\/th>\n      <th>age_at_diagnosis<\/th>\n      <th>vital_status<\/th>\n      <th>morphology<\/th>\n      <th>days_to_death<\/th>\n      <th>days_to_last_known_disease_status<\/th>\n      <th>created_datetime.x<\/th>\n      <th>state.x<\/th>\n      <th>days_to_recurrence<\/th>\n      <th>diagnosis_id<\/th>\n      <th>tumor_grade<\/th>\n      <th>treatments<\/th>\n      <th>tissue_or_organ_of_origin<\/th>\n      <th>days_to_birth<\/th>\n      <th>progression_or_recurrence<\/th>\n      <th>prior_malignancy<\/th>\n      <th>site_of_resection_or_biopsy<\/th>\n      <th>days_to_last_follow_up<\/th>\n      <th>cigarettes_per_day<\/th>\n      <th>weight<\/th>\n      <th>updated_datetime.y<\/th>\n      <th>alcohol_history<\/th>\n      <th>alcohol_intensity<\/th>\n      <th>bmi<\/th>\n      <th>years_smoked<\/th>\n      <th>created_datetime.y<\/th>\n      <th>state.y<\/th>\n      <th>exposure_id<\/th>\n      <th>height<\/th>\n      <th>updated_datetime<\/th>\n      <th>created_datetime<\/th>\n      <th>gender<\/th>\n      <th>year_of_birth<\/th>\n      <th>state<\/th>\n      <th>race<\/th>\n      <th>demographic_id<\/th>\n      <th>ethnicity<\/th>\n      <th>year_of_death<\/th>\n      <th>bcr_patient_barcode<\/th>\n      <th>dbgap_accession_number<\/th>\n      <th>disease_type<\/th>\n      <th>released<\/th>\n      <th>state.1<\/th>\n      <th>primary_site<\/th>\n      <th>project_id<\/th>\n      <th>name<\/th>\n      <th>subtype_patient<\/th>\n      <th>subtype_Sex<\/th>\n      <th>subtype_Age.at.diagnosis<\/th>\n      <th>subtype_T.stage<\/th>\n      <th>subtype_N.stage<\/th>\n      <th>subtype_M.stage<\/th>\n      <th>subtype_Smoking.Status<\/th>\n      <th>subtype_Pack.years<\/th>\n      <th>subtype_Nonsilent.Mutatios<\/th>\n      <th>subtype_Nonsilent.Mutatios.per.Mb<\/th>\n      <th>subtype_Selected.Mutation.Summary<\/th>\n      <th>subtype_High.Level.Amplifications<\/th>\n      <th>subtype_Homozygous.Deletions<\/th>\n      <th>subtype_Expression.Subtype<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[11,14,23,27,28,34,42,47,64]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">assay</span>(met)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span> (<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">scrollX =</span> <span class="ot">TRUE</span>), <span class="dt">rownames =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div id="htmlwidget-d8af3f6d1f68a4117da8" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d8af3f6d1f68a4117da8">{"x":{"filter":"none","data":[["cg00000029","cg00000108","cg00000109","cg00000165","cg00000236"],[0.16905383694746,null,null,0.438873007072102,0.912404023561252],[0.339595556132096,null,null,0.182698471914805,0.834794933990031]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>TCGA-34-5231-01A-21D-1818-05<\/th>\n      <th>TCGA-77-7138-01A-41D-2043-05<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8445b88c261fdf6fc203" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8445b88c261fdf6fc203">{"x":{"filter":"none","data":[["cg00000029","cg00000108","cg00000109","cg00000165","cg00000236"],[0.16905383694746,null,null,0.438873007072102,0.912404023561252],[0.339595556132096,null,null,0.182698471914805,0.834794933990031]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>TCGA-34-5231-01A-21D-1818-05<\/th>\n      <th>TCGA-77-7138-01A-41D-2043-05<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowRanges</span>(met)</code></pre></div>
 <pre><code>## GRanges object with 485577 ranges and 7 metadata columns:
 ##              seqnames                 ranges strand |
@@ -665,9 +665,9 @@ met &lt;-<span class="st"> </span><span class="kw">GDCprepare</span>(<span class
 <div id="session-info" class="section level1">
 <h1>Session Info</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.4.0 (2017-04-21)
+<pre><code>## R version 3.4.1 (2017-06-30)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Sierra 10.12.6
+## Running under: macOS Sierra 10.12.5
 ## 
 ## Matrix products: default
 ## BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
@@ -677,140 +677,111 @@ met &lt;-<span class="st"> </span><span class="kw">GDCprepare</span>(<span class
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 ## 
 ## attached base packages:
-##  [1] grid      parallel  stats4    stats     graphics  grDevices utils    
-##  [8] datasets  methods   base     
+## [1] parallel  stats4    stats     graphics  grDevices utils     datasets 
+## [8] methods   base     
 ## 
 ## other attached packages:
 ##  [1] Bioc2017.TCGAbiolinks.ELMER_0.0.0.9000
-##  [2] maftools_1.3.0                        
-##  [3] data.table_1.10.4                     
-##  [4] readr_1.1.1                           
-##  [5] htmlwidgets_0.9                       
-##  [6] ggrepel_0.6.5                         
-##  [7] stringr_1.2.0                         
-##  [8] clusterProfiler_3.5.4                 
-##  [9] DOSE_3.3.1                            
-## [10] reshape2_1.4.2                        
-## [11] pathview_1.16.1                       
-## [12] org.Hs.eg.db_3.4.1                    
-## [13] AnnotationDbi_1.39.1                  
-## [14] plotly_4.7.0                          
-## [15] ggplot2_2.2.1                         
-## [16] shinyjs_0.9.1                         
-## [17] shinyBS_0.61                          
-## [18] shinyFiles_0.6.2                      
-## [19] shiny_1.0.3                           
-## [20] TCGAbiolinksGUI_1.3.0                 
-## [21] shinydashboard_0.6.1                  
-## [22] bindrcpp_0.2                          
-## [23] ELMER_2.0.1                           
-## [24] ELMER.data_2.0.1                      
-## [25] MultiAssayExperiment_1.3.20           
-## [26] dplyr_0.7.2                           
-## [27] DT_0.2                                
-## [28] SummarizedExperiment_1.7.5            
-## [29] DelayedArray_0.3.16                   
-## [30] matrixStats_0.52.2                    
-## [31] Biobase_2.37.2                        
-## [32] GenomicRanges_1.29.11                 
-## [33] GenomeInfoDb_1.13.4                   
-## [34] IRanges_2.11.10                       
-## [35] S4Vectors_0.15.5                      
-## [36] BiocGenerics_0.23.0                   
-## [37] TCGAbiolinks_2.5.6                    
-## [38] BiocInstaller_1.27.2                  
+##  [2] ELMER_2.0.1                           
+##  [3] TCGAbiolinks_2.5.6                    
+##  [4] dplyr_0.7.2                           
+##  [5] SummarizedExperiment_1.6.3            
+##  [6] DelayedArray_0.2.7                    
+##  [7] matrixStats_0.52.2                    
+##  [8] Biobase_2.36.2                        
+##  [9] GenomicRanges_1.28.4                  
+## [10] GenomeInfoDb_1.12.2                   
+## [11] IRanges_2.10.2                        
+## [12] S4Vectors_0.14.3                      
+## [13] BiocGenerics_0.22.0                   
+## [14] bindrcpp_0.2                          
+## [15] MultiAssayExperiment_1.2.1            
+## [16] DT_0.2                                
+## [17] ELMER.data_2.0.1                      
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] rtracklayer_1.37.2            ggthemes_3.4.0               
+##   [1] rtracklayer_1.36.4            ggthemes_3.4.0               
 ##   [3] prabclus_2.2-6                R.methodsS3_1.7.1            
-##   [5] pkgmaker_0.22                 tidyr_0.6.3                  
+##   [5] tidyr_0.6.3                   ggplot2_2.2.1                
 ##   [7] acepack_1.4.1                 bit64_0.9-7                  
-##   [9] knitr_1.16                    aroma.light_3.7.0            
-##  [11] R.utils_2.5.0                 rpart_4.1-11                 
-##  [13] hwriter_1.3.2                 KEGGREST_1.16.0              
-##  [15] RCurl_1.95-4.8                AnnotationFilter_1.1.3       
-##  [17] doParallel_1.0.10             GenomicFeatures_1.29.8       
-##  [19] cowplot_0.7.0                 RSQLite_2.0                  
-##  [21] commonmark_1.2                bit_1.1-12                   
-##  [23] BiocStyle_2.4.0               xml2_1.1.1                   
-##  [25] httpuv_1.3.5                  assertthat_0.2.0             
-##  [27] viridis_0.4.0                 hms_0.3                      
-##  [29] evaluate_0.10.1               DEoptimR_1.0-8               
-##  [31] progress_1.1.2                dendextend_1.5.2             
-##  [33] Rgraphviz_2.20.0              km.ci_0.5-2                  
-##  [35] igraph_1.1.2                  DBI_0.7                      
-##  [37] geneplotter_1.55.0            reshape_0.8.6                
-##  [39] EDASeq_2.11.0                 matlab_1.0.2                 
-##  [41] purrr_0.2.2.2                 selectr_0.3-1                
-##  [43] ggpubr_0.1.4                  backports_1.1.0              
-##  [45] trimcluster_0.1-2             annotate_1.55.0              
-##  [47] gridBase_0.4-7                biomaRt_2.33.3               
-##  [49] ensembldb_2.1.10              withr_1.0.2                  
-##  [51] Gviz_1.21.1                   BSgenome_1.45.1              
-##  [53] robustbase_0.92-7             checkmate_1.8.3              
-##  [55] GenomicAlignments_1.13.4      prettyunits_1.0.2            
-##  [57] mclust_5.3                    mnormt_1.5-5                 
-##  [59] cluster_2.0.6                 lazyeval_0.2.0               
-##  [61] DPpackage_1.1-6               genefilter_1.59.0            
-##  [63] edgeR_3.19.3                  pkgconfig_2.0.1              
-##  [65] slam_0.1-40                   labeling_0.3                 
-##  [67] cometExactTest_0.1.3          nlme_3.1-131                 
-##  [69] ProtGenerics_1.9.0            wordcloud_2.5                
-##  [71] changepoint_2.2.2             nnet_7.3-12                  
-##  [73] devtools_1.13.2               RJSONIO_1.3-0                
-##  [75] bindr_0.1                     rlang_0.1.1                  
-##  [77] diptest_0.75-7                miniUI_0.1.1                 
-##  [79] colourpicker_0.3              downloader_0.4               
-##  [81] registry_0.3                  AnnotationHub_2.9.5          
-##  [83] dichromat_2.0-0               rprojroot_1.2                
-##  [85] graph_1.54.0                  rngtools_1.2.4               
-##  [87] Matrix_1.2-10                 KMsurv_0.1-5                 
-##  [89] zoo_1.8-0                     base64enc_0.1-3              
-##  [91] whisker_0.3-2                 GlobalOptions_0.0.12         
-##  [93] png_0.1-7                     viridisLite_0.2.0            
-##  [95] rjson_0.2.15                  GenomicInteractions_1.10.0   
-##  [97] bitops_1.0-6                  R.oo_1.21.0                  
-##  [99] ConsensusClusterPlus_1.41.0   Biostrings_2.45.2            
-## [101] blob_1.1.0                    shape_1.4.2                  
-## [103] qvalue_2.9.0                  ShortRead_1.35.1             
-## [105] scales_0.4.1                  memoise_1.1.0                
-## [107] magrittr_1.5                  plyr_1.8.4                   
-## [109] zlibbioc_1.23.0               compiler_3.4.0               
-## [111] RColorBrewer_1.1-2            KEGGgraph_1.34.0             
-## [113] Rsamtools_1.29.0              XVector_0.17.0               
-## [115] htmlTable_1.9                 Formula_1.2-2                
-## [117] MASS_7.3-47                   stringi_1.1.5                
-## [119] yaml_2.1.14                   GOSemSim_2.3.1               
-## [121] locfit_1.5-9.1                latticeExtra_0.6-28          
-## [123] survMisc_0.5.4                VariantAnnotation_1.23.5     
-## [125] fastmatch_1.1-0               tools_3.4.0                  
-## [127] rstudioapi_0.6                circlize_0.4.1               
-## [129] foreach_1.4.3                 foreign_0.8-69               
-## [131] git2r_0.19.0                  gridExtra_2.2.1              
-## [133] digest_0.6.12                 rvcheck_0.0.9                
-## [135] cmprsk_2.2-7                  fpc_2.1-10                   
-## [137] Rcpp_0.12.12                  broom_0.4.2                  
-## [139] httr_1.2.1                    survminer_0.4.0              
-## [141] biovizBase_1.25.1             ComplexHeatmap_1.15.0        
-## [143] psych_1.7.5                   kernlab_0.9-25               
-## [145] colorspace_1.3-2              rvest_0.3.2                  
-## [147] XML_3.98-1.9                  splines_3.4.0                
-## [149] flexmix_2.3-14                xtable_1.8-2                 
-## [151] jsonlite_1.5                  modeltools_0.2-21            
-## [153] R6_2.2.2                      Hmisc_4.0-3                  
-## [155] htmltools_0.3.6               mime_0.5                     
-## [157] NMF_0.20.6                    glue_1.1.1                   
-## [159] BiocParallel_1.11.4           DESeq_1.29.0                 
-## [161] class_7.3-14                  interactiveDisplayBase_1.15.0
-## [163] codetools_0.2-15              fgsea_1.3.1                  
-## [165] mvtnorm_1.0-6                 lattice_0.20-35              
-## [167] tibble_1.3.3                  curl_2.7                     
-## [169] GO.db_3.4.1                   roxygen2_6.0.1               
-## [171] survival_2.41-3               limma_3.33.5                 
-## [173] rmarkdown_1.6                 InteractionSet_1.4.0         
-## [175] munsell_0.4.3                 DO.db_2.9                    
-## [177] GetoptLong_0.1.6              GenomeInfoDbData_0.99.0      
-## [179] iterators_1.0.8               gtable_0.2.0</code></pre>
+##   [9] knitr_1.16                    aroma.light_3.6.0            
+##  [11] R.utils_2.5.0                 data.table_1.10.4            
+##  [13] rpart_4.1-11                  hwriter_1.3.2                
+##  [15] RCurl_1.95-4.8                AnnotationFilter_1.0.0       
+##  [17] doParallel_1.0.10             GenomicFeatures_1.28.4       
+##  [19] RSQLite_2.0                   commonmark_1.2               
+##  [21] bit_1.1-12                    BiocStyle_2.4.0              
+##  [23] xml2_1.1.1                    httpuv_1.3.5                 
+##  [25] assertthat_0.2.0              viridis_0.4.0                
+##  [27] hms_0.3                       evaluate_0.10.1              
+##  [29] BiocInstaller_1.26.0          DEoptimR_1.0-8               
+##  [31] dendextend_1.5.2              km.ci_0.5-2                  
+##  [33] DBI_0.7                       geneplotter_1.54.0           
+##  [35] htmlwidgets_0.9               reshape_0.8.6                
+##  [37] EDASeq_2.10.0                 matlab_1.0.2                 
+##  [39] purrr_0.2.2.2                 selectr_0.3-1                
+##  [41] ggpubr_0.1.4                  backports_1.1.0              
+##  [43] trimcluster_0.1-2             annotate_1.54.0              
+##  [45] biomaRt_2.32.1                ensembldb_2.0.3              
+##  [47] withr_1.0.2                   Gviz_1.20.0                  
+##  [49] BSgenome_1.44.0               robustbase_0.92-7            
+##  [51] checkmate_1.8.3               GenomicAlignments_1.12.1     
+##  [53] mclust_5.3                    mnormt_1.5-5                 
+##  [55] cluster_2.0.6                 lazyeval_0.2.0               
+##  [57] genefilter_1.58.1             edgeR_3.18.1                 
+##  [59] pkgconfig_2.0.1               labeling_0.3                 
+##  [61] nlme_3.1-131                  ProtGenerics_1.8.0           
+##  [63] nnet_7.3-12                   devtools_1.13.2              
+##  [65] bindr_0.1                     rlang_0.1.1                  
+##  [67] diptest_0.75-7                downloader_0.4               
+##  [69] AnnotationHub_2.8.2           dichromat_2.0-0              
+##  [71] rprojroot_1.2                 Matrix_1.2-10                
+##  [73] KMsurv_0.1-5                  zoo_1.8-0                    
+##  [75] base64enc_0.1-3               whisker_0.3-2                
+##  [77] GlobalOptions_0.0.12          viridisLite_0.2.0            
+##  [79] rjson_0.2.15                  bitops_1.0-6                 
+##  [81] shinydashboard_0.6.1          R.oo_1.21.0                  
+##  [83] ConsensusClusterPlus_1.40.0   Biostrings_2.44.1            
+##  [85] blob_1.1.0                    shape_1.4.2                  
+##  [87] stringr_1.2.0                 ShortRead_1.34.0             
+##  [89] readr_1.1.1                   scales_0.4.1                 
+##  [91] memoise_1.1.0                 magrittr_1.5                 
+##  [93] plyr_1.8.4                    zlibbioc_1.22.0              
+##  [95] compiler_3.4.1                RColorBrewer_1.1-2           
+##  [97] Rsamtools_1.28.0              XVector_0.16.0               
+##  [99] htmlTable_1.9                 Formula_1.2-2                
+## [101] MASS_7.3-47                   stringi_1.1.5                
+## [103] yaml_2.1.14                   locfit_1.5-9.1               
+## [105] latticeExtra_0.6-28           ggrepel_0.6.5                
+## [107] survMisc_0.5.4                grid_3.4.1                   
+## [109] VariantAnnotation_1.22.3      tools_3.4.1                  
+## [111] circlize_0.4.1                rstudioapi_0.6               
+## [113] foreach_1.4.3                 foreign_0.8-69               
+## [115] git2r_0.18.0                  gridExtra_2.2.1              
+## [117] digest_0.6.12                 shiny_1.0.3                  
+## [119] cmprsk_2.2-7                  fpc_2.1-10                   
+## [121] Rcpp_0.12.12                  broom_0.4.2                  
+## [123] httr_1.2.1                    survminer_0.4.0              
+## [125] AnnotationDbi_1.38.1          biovizBase_1.24.0            
+## [127] ComplexHeatmap_1.14.0         psych_1.7.5                  
+## [129] kernlab_0.9-25                colorspace_1.3-2             
+## [131] rvest_0.3.2                   XML_3.98-1.9                 
+## [133] splines_3.4.1                 flexmix_2.3-14               
+## [135] plotly_4.7.0                  xtable_1.8-2                 
+## [137] jsonlite_1.5                  UpSetR_1.3.3                 
+## [139] modeltools_0.2-21             R6_2.2.2                     
+## [141] Hmisc_4.0-3                   htmltools_0.3.6              
+## [143] mime_0.5                      glue_1.1.1                   
+## [145] BiocParallel_1.10.1           DESeq_1.28.0                 
+## [147] class_7.3-14                  interactiveDisplayBase_1.14.0
+## [149] codetools_0.2-15              mvtnorm_1.0-6                
+## [151] lattice_0.20-35               tibble_1.3.3                 
+## [153] curl_2.7                      survival_2.41-3              
+## [155] limma_3.32.3                  roxygen2_6.0.1               
+## [157] rmarkdown_1.6                 munsell_0.4.3                
+## [159] GetoptLong_0.1.6              GenomeInfoDbData_0.99.0      
+## [161] iterators_1.0.8               reshape2_1.4.2               
+## [163] gtable_0.2.0</code></pre>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
 <h1>Bibliography</h1>

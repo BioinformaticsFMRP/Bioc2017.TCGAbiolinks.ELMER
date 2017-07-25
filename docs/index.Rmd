@@ -76,7 +76,7 @@ and basic understanding of tumor biology.
 |  Section                     | Duration |
 |------------------------------|----------|
 | Introduction                 | 10 min   |
-| Get data - TCGAbiolinks/TCGAbiolinksGUI pavckages | 20 min   |
+| Get data - TCGAbiolinks/TCGAbiolinksGUI packages | 20 min   |
 | Analysis - ELMER package [(Slides)](https://github.com/BioinformaticsFMRP/Bioc2017.TCGAbiolinks.ELMER/blob/master/vignettes/elmer.pdf)                      | 1 hour   |
 
 
