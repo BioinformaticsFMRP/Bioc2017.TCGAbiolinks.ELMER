@@ -290,7 +290,10 @@ motif.enrichment  %>% datatable(options = list(scrollX = TRUE))
 dir(path = "result", pattern = "motif.enrichment.pdf") 
 ```
 
-![Motif enrichment figure](result/hypo.all.quality.motif.enrichment.pdf)
+### Figure: hypo.all.quality.motif.enrichment.pdf
+
+<img src="result/hypo.all.quality.motif.enrichment.pdf" alt="Motif enrichment plot"  width="4200" height="4200">
+
 
 ## Identifying regulatory TFs
 
@@ -354,9 +357,9 @@ dir(path = "result", pattern = "getTF")
 dir(path = "result/TFrankPlot_family/", pattern = "pdf") 
 ```
 
+### Figure: FOXJ3_HUMAN.H10MO.S.TFrankPlot.pdf
 
-![TF ranking plot](result/TFrankPlot_family/FOXJ3_HUMAN.H10MO.S.TFrankPlot.pdf)
-
+<img src="result/TFrankPlot_family/FOXJ3_HUMAN.H10MO.S.TFrankPlot.pdf" alt="TF ranking plot"  width="4200" height="4200">
 
 # Session Info
 
