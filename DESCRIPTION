@@ -1,5 +1,5 @@
 Package: Bioc2017.TCGAbiolinks.ELMER
-Title: What the Package Does (one line, title case)
+Title: Bioc2017.TCGAbiolinks.ELMER
 Version: 0.0.0.9000
 Authors@R: person("Tiago", "Chedraoui Silva", email = "tiagochst@gmail.com", role = c("aut", "cre"))
 Description: In this workshop, we will use the R/Bioconductor 
