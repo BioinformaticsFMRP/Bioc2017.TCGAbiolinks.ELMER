@@ -86,7 +86,7 @@ mae <- createMAE(exp = lusc.exp,
                  filter.probes = distal.probes,
                  save.filename = "mae_bioc2017.rda",
                  met.platform = "450K",
-                 genome = "hg19",
+                 genome = "hg38",
                  TCGA = TRUE)
 mae
 colData(mae)[1:5,] %>%  as.data.frame %>% datatable(options = list(scrollX = TRUE))
@@ -282,9 +282,17 @@ head(enriched.motif["P73_HUMAN.H10MO.A"]) ## probes in the given set that have T
 # getMotif.hypo.motif.enrichment.csv contains summary of enriched motifs.
 dir(path = "result", pattern = "getMotif") 
 
+motif.enrichment <- read.csv("result/getMotif.hypo.motif.enrichment.csv")
+motif.enrichment  %>% datatable(options = list(scrollX = TRUE))
+
+
 # motif enrichment figure will be automatically generated.
 dir(path = "result", pattern = "motif.enrichment.pdf") 
 ```
+
+### Figure: hypo.all.quality.motif.enrichment.pdf
+
+<img src="result/hypo.all.quality.motif.enrichment.pdf" alt="Motif enrichment plot"  width="4200" height="4200">
 
 
 ## Identifying regulatory TFs
@@ -337,6 +345,8 @@ TF <- get.TFs(data = mae,
 ```
 
 ```{r,eval=TRUE, message=FALSE, warning = FALSE}
+TF  %>% datatable(options = list(scrollX = TRUE))
+
 # get.TFs automatically save output files. 
 # getTF.hypo.TFs.with.motif.pvalue.rda contains statistics for all TF with average 
 # DNA methylation at sites with the enriched motif.
@@ -346,6 +356,11 @@ dir(path = "result", pattern = "getTF")
 # TF ranking plot based on statistics will be automatically generated.
 dir(path = "result/TFrankPlot_family/", pattern = "pdf") 
 ```
+
+### Figure: FOXJ3_HUMAN.H10MO.S.TFrankPlot.pdf
+
+<img src="result/TFrankPlot_family/FOXJ3_HUMAN.H10MO.S.TFrankPlot.pdf" alt="TF ranking plot"  width="4200" height="4200">
+
 # Session Info
 
 ```{r sessioninfo, eval=TRUE}

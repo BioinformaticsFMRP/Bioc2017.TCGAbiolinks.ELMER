@@ -97,6 +97,10 @@ head(enriched.motif["P73_HUMAN.H10MO.A"]) ## probes in the given set that have T
 # getMotif.hypo.motif.enrichment.csv contains summary of enriched motifs.
 dir(path = "result", pattern = "getMotif") 
 
+motif.enrichment <- read.csv("result/getMotif.hypo.motif.enrichment.csv")
+motif.enrichment  %>% datatable(options = list(scrollX = TRUE))
+
+
 # motif enrichment figure will be automatically generated.
 dir(path = "result", pattern = "motif.enrichment.pdf") 
 
@@ -113,6 +117,8 @@ TF <- get.TFs(data = mae,
               label = "hypo")
 
 ## ----eval=TRUE, message=FALSE, warning = FALSE---------------------------
+TF  %>% datatable(options = list(scrollX = TRUE))
+
 # get.TFs automatically save output files. 
 # getTF.hypo.TFs.with.motif.pvalue.rda contains statistics for all TF with average 
 # DNA methylation at sites with the enriched motif.
@@ -124,5 +130,4 @@ dir(path = "result/TFrankPlot_family/", pattern = "pdf")
 
 ## ----sessioninfo, eval=TRUE----------------------------------------------
 sessionInfo()
-devtools::session_info()
 
